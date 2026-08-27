@@ -280,7 +280,7 @@ nav {
   max-width: var(--max); margin: 0 auto;
 }
 .vid-block { overflow: hidden; position: relative; background: #000; border: 1.5px solid var(--border); }
-.vid-block video { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; }
+.vid-block iframe { width: 100%; display: block; aspect-ratio: 16/9; }
 .vid-cap {
   padding: 16px 20px; background: var(--bg);
   border-top: 1px solid var(--border);
@@ -699,8 +699,7 @@ footer {
   let hidden=false;
   function tryHide(){ if(!hidden){ hidden=true; hideLoader(); } }
   setTimeout(tryHide, 3000);
-  setTimeout(tryHide, 6000);
-  window.addEventListener('load', ()=>{ setTimeout(tryHide, 3000); });
+  window.addEventListener('load', ()=>{ setTimeout(tryHide, 500); });
 
   SRC.onload = ()=>{ rafId=requestAnimationFrame(draw); };
   if(SRC.complete){ rafId=requestAnimationFrame(draw); }
@@ -709,7 +708,7 @@ footer {
 
 <!-- NAV -->
 <nav id="nav">
-  <div class="nav-logo" onclick="showPage('home')">
+  <div class="nav-logo">
     <img src="assets/Polkadot_Logo_Pink-White.png" alt="Polkadot México">
     <span>Polkadot México</span>
   </div>
@@ -738,7 +737,7 @@ footer {
     <h1 class="hero-h1">Polkadot<br><em>México</em></h1>
     <p class="hero-p">Conectamos estudiantes, desarrolladores y profesionistas con el ecosistema Web3 más innovador.</p>
     <div class="hero-btns">
-      <a href="#mision" class="btn-dark">Ver más</a>
+      <a onclick="showPage('mision')" class="btn-dark" style="cursor:pointer">Ver más</a>
       <a href="https://linktr.ee/polkadotmexico_" target="_blank" class="btn-ghost">Nuestras redes</a>
     </div>
   </div>
@@ -890,7 +889,7 @@ footer {
     </div>
     <div class="photo-grid" id="gallery-talent">
       <div class="photo-item" onclick="openLB('talent',0)"><img src="assets/images/talent-land-2023/IMG_6538.JPG" loading="lazy" alt=""></div>
-      <div class="photo-item" onclick="openLB('talent',1)"><img src="assets/images/talent-land-2023/IMG_6604.JPG" loading="lazy" alt=""></div>
+      <div class="photo-item" onclick="openLB('talent',1)"><img src="assets/images/talent-land-2023/Talent Land 2023/IMG_6901(2).jpg" loading="lazy" alt=""></div>
       <div class="photo-item" onclick="openLB('talent',2)"><img src="assets/images/talent-land-2023/IMG_6451.JPG" loading="lazy" alt=""></div>
       <div class="photo-item" onclick="openLB('talent',3)"><img src="assets/images/talent-land-2023/Audio STREAM.01_45_00_02.Imagen fija010.jpg" loading="lazy" alt=""></div>
       <div class="photo-item" onclick="openLB('talent',4)"><img src="assets/images/talent-land-2023/Audio STREAM.02_07_48_17.Imagen fija015.jpg" loading="lazy" alt=""></div>
@@ -907,7 +906,7 @@ footer {
       <div class="photo-item" onclick="openLB('talent',15)"><img src="assets/images/talent-land-2023/IMG_6545.JPG" loading="lazy" alt=""></div>
       <div class="photo-item" onclick="openLB('talent',16)"><img src="assets/images/talent-land-2023/Audio STREAM.01_34_36_20.Imagen fija007.jpg" loading="lazy" alt=""></div>
       <div class="photo-item" onclick="openLB('talent',17)"><img src="assets/images/talent-land-2023/IMG_6538.JPG" loading="lazy" alt=""></div>
-      <div class="photo-item" onclick="openLB('talent',18)"><img src="assets/images/talent-land-2023/IMG_6604.JPG" loading="lazy" alt=""></div>
+      <div class="photo-item" onclick="openLB('talent',18)"><img src="assets/images/talent-land-2023/Talent Land 2023/IMG_6993.jpg" loading="lazy" alt=""></div>
       <div class="photo-item" onclick="openLB('talent',19)"><img src="assets/images/talent-land-2023/IMG_6451.JPG" loading="lazy" alt=""></div>
     </div>
     <div class="photo-grid" id="gallery-hacker">
@@ -1252,7 +1251,7 @@ const gData = {
     'assets/images/satellite-2023/DSC00256.jpg','assets/images/satellite-2023/DSC00229.JPG'
   ],
   talent: [
-    'assets/images/talent-land-2023/IMG_6538.JPG','assets/images/talent-land-2023/IMG_6604.JPG',
+    'assets/images/talent-land-2023/IMG_6538.JPG','assets/images/talent-land-2023/Talent Land 2023/IMG_6901(2).jpg',
     'assets/images/talent-land-2023/IMG_6451.JPG',
     'assets/images/talent-land-2023/Audio STREAM.01_45_00_02.Imagen fija010.jpg',
     'assets/images/talent-land-2023/Audio STREAM.02_07_48_17.Imagen fija015.jpg',
@@ -1263,7 +1262,7 @@ const gData = {
     'assets/images/talent-land-2023/IMG_6338.JPG','assets/images/talent-land-2023/IMG_6396.JPG',
     'assets/images/talent-land-2023/IMG_6544.JPG','assets/images/talent-land-2023/IMG_6545.JPG',
     'assets/images/talent-land-2023/Audio STREAM.01_34_36_20.Imagen fija007.jpg',
-    'assets/images/talent-land-2023/IMG_6538.JPG','assets/images/talent-land-2023/IMG_6604.JPG',
+    'assets/images/talent-land-2023/IMG_6538.JPG','assets/images/talent-land-2023/Talent Land 2023/IMG_6993.jpg',
     'assets/images/talent-land-2023/IMG_6451.JPG'
   ],
   hacker: [
