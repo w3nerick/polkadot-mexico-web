@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Polkadot México</title>
 <meta name="description" content="La comunidad de Polkadot en México. Eventos, workshops y ecosistema Web3.">
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
 @font-face { font-family:'Space Mono'; font-weight:400; font-display:swap; src:url('assets/fonts/SpaceMono-400.woff2') format('woff2'); }
@@ -1601,18 +1602,9 @@ function showPage(id) {
   }, 50);
   // close mobile menu
   document.getElementById('navlinks').classList.remove('open');
-  // lazy-load Twitter only when Comunidad tab opens
-  if (id === 'comunidad' && !_twLoaded) {
-    _twLoaded = true;
-    const s = document.createElement('script');
-    s.src = 'https://platform.twitter.com/widgets.js';
-    s.async = true; s.charset = 'utf-8';
-    document.body.appendChild(s);
-  }
 }
 
 // lazy-load Twitter only when Comunidad tab is opened
-let _twLoaded = false;
 
 // logo goes home
 document.querySelector('.nav-logo').addEventListener('click', () => showPage('home'));
