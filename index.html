@@ -476,36 +476,113 @@ footer {
 .rv3 { transition-delay: .24s; }
 
 /* ── MOBILE ── */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
+  /* NAV */
   nav { padding: 0 20px; }
   .nav-links { display: none; }
   .nav-links.open {
     display: flex; flex-direction: column; position: fixed; inset: 0;
     background: var(--bg); align-items: center; justify-content: center;
-    gap: 28px; z-index: 199;
+    gap: 32px; z-index: 199; top: 0;
   }
-  .nav-links.open a { font-size: 16px; }
+  .nav-links.open a {
+    font-size: 18px; height: auto; padding: 8px 0; border-bottom: none;
+  }
+  .nav-links.open .nav-cta {
+    padding: 12px 28px !important; margin-top: 8px;
+  }
   .burger { display: flex; }
-  .section { padding: 72px 24px; }
+
+  /* HERO */
+  #hero { padding: 0 24px 56px; min-height: 100svh; }
+  .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .hero-bg video { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+  .hero-h1 { letter-spacing: -2px; margin-bottom: 18px; }
+  .hero-p { font-size: 15px; margin-bottom: 28px; }
+  .hero-btns { flex-direction: column; gap: 0; }
+  .btn-ghost { border-left: 2px solid rgba(255,255,255,.5); border-top: none; }
+
+  /* STATS */
   .stats-bar { grid-template-columns: repeat(2,1fr); }
+  .stat { padding: 28px 16px; }
+  .stat-n { font-size: 32px; }
   .stat:nth-child(2) { border-right: none; }
   .stat:nth-child(3) { border-top: 1px solid var(--border); }
   .stat:nth-child(4) { border-top: 1px solid var(--border); border-right: none; }
-  .intro-box { padding: 28px 24px; }
-  .bento { grid-template-columns: 1fr; }
-  .b-card.wide, .b-card.tall, .b-card.short { grid-column: 1; grid-row: auto; }
-  .quote-section { padding: 72px 24px; }
-  .reveal-section { padding: 72px 24px 0; }
+
+  /* SECTIONS */
+  .section { padding: 56px 20px; }
+  .sec-title { margin-bottom: 40px; letter-spacing: -1.5px; }
+  .quote-section { padding: 56px 20px; }
+  .reveal-section { padding: 56px 20px 0; }
   .reveal-img { aspect-ratio: 4/3; }
+
+  /* INTRO BOX */
+  .intro-box { padding: 24px 20px; margin-bottom: 40px; }
+  .intro-box p { font-size: 15px; }
+
+  /* BENTO */
+  .bento { grid-template-columns: 1fr; gap: 3px; }
+  .b-card { padding: 32px 24px; }
+  .b-card.wide, .b-card.tall, .b-card.short { grid-column: 1; grid-row: auto; }
+
+  /* VIDEOS */
   .video-grid { grid-template-columns: 1fr; gap: 12px; }
+
+  /* GALLERY TABS */
+  .g-tabs {
+    display: grid; grid-template-columns: repeat(2,1fr);
+    width: 100%; border: 1.5px solid var(--black);
+  }
+  .g-tab { border-right: 1.5px solid var(--black); border-bottom: 1.5px solid var(--black); padding: 10px 8px; font-size: 9px; }
+  .g-tab:nth-child(even) { border-right: none; }
+  .g-tab:nth-last-child(-n+2) { border-bottom: none; }
+  .photo-grid.on { grid-template-columns: repeat(2,1fr); gap: 4px; }
+
+  /* LIGHTBOX */
+  .lb { padding: 12px; }
+  .lb img { max-width: 96vw; max-height: 80vh; }
+  .lb-close { top: 12px; right: 12px; }
+  .lb-prev { left: 8px; }
+  .lb-next { right: 8px; }
+
+  /* EVENTS */
+  .ev-date { width: 72px; padding: 20px 8px; }
+  .ev-dy { font-size: 24px; }
+  .ev-info { padding: 20px 16px; }
+  .ev-title { font-size: 14px; }
+  .ev-badge { display: none; }
+  .ev-arrow { margin-right: 16px; }
+
+  /* SPACES */
+  .spaces-track { padding: 0 20px; gap: 8px; }
+  .sp-card { min-width: 260px; padding: 32px 24px; }
+
+  /* BLOG */
+  .blog-grid { grid-template-columns: 1fr; gap: 12px; }
+
+  /* SOCIAL */
+  .social-grid { grid-template-columns: repeat(2,1fr); gap: 3px; }
+  .soc-card { padding: 36px 16px; }
+
+  /* CTA */
+  .cta-section { padding: 56px 20px; }
+  .cta-btns { flex-direction: column; align-items: center; }
+  .btn-bordered { width: 100%; max-width: 280px; text-align: center; }
+
+  /* FOOTER */
+  footer { padding: 48px 20px 32px; }
+  .footer-top { grid-template-columns: 1fr; gap: 40px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+
+/* ── MOBILE XS (iPhone SE, etc) ── */
+@media (max-width: 390px) {
+  .hero-h1 { letter-spacing: -1.5px; }
+  .g-tabs { grid-template-columns: 1fr 1fr; }
+  .g-tab { font-size: 8px; padding: 9px 6px; }
   .photo-grid.on { grid-template-columns: repeat(2,1fr); }
-  .blog-grid { grid-template-columns: 1fr; }
-  .social-grid { grid-template-columns: repeat(2,1fr); }
-  .cta-section { padding: 72px 24px; }
-  footer { padding: 56px 24px 32px; }
-  .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
-  footer { padding: 56px 24px 36px; }
-  .spaces-track { gap: 12px; padding: 0 24px; }
+  .social-grid { grid-template-columns: 1fr 1fr; }
 }
 </style>
 </head>
