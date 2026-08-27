@@ -383,6 +383,25 @@ nav {
 .sp-card h3 { font-family: 'DM Serif Display', serif; font-size: 17px; font-weight: 700; color: var(--black); margin-bottom: 10px; letter-spacing: 0; line-height: 1.2; }
 .sp-card p { font-size: 14px; color: var(--mid); line-height: 1.7; }
 
+/* ── TWEETS ── */
+#posts-x { background: var(--black); border-bottom: 1px solid #222; }
+#posts-x .eyebrow { color: var(--pink); }
+#posts-x .sec-title { color: #fff; }
+#posts-x .sec-title em { color: var(--pink); }
+.tweets-track {
+  display: flex; overflow-x: auto; scrollbar-width: none; cursor: grab;
+  gap: 20px; max-width: 100%; padding: 8px 4px 24px;
+  -webkit-overflow-scrolling: touch;
+}
+.tweets-track:active { cursor: grabbing; }
+.tweets-track::-webkit-scrollbar { display: none; }
+.tweet-slot {
+  flex-shrink: 0; width: 340px;
+  border-radius: 0; overflow: hidden;
+}
+.tweet-slot .twitter-tweet { margin: 0 !important; }
+@media (max-width: 768px) { .tweet-slot { width: 290px; } }
+
 /* ── BLOG ── */
 .blog-grid {
   display: grid; grid-template-columns: repeat(3,1fr); gap: 3px;
@@ -1128,6 +1147,27 @@ footer {
   </div>
 </section>
 
+<!-- COMUNIDAD EN X -->
+<section class="section" id="posts-x">
+  <div class="section-inner">
+    <div class="rv">
+      <span class="eyebrow">La comunidad habla</span>
+      <h2 class="sec-title">Posts de la <em>comunidad</em></h2>
+    </div>
+    <div class="tweets-track rv" id="tweets-track">
+      <div class="tweet-slot"><blockquote class="twitter-tweet" data-theme="light"><a href="https://x.com/PolkadotMexico_/status/1833229529097375919"></a></blockquote></div>
+      <div class="tweet-slot"><blockquote class="twitter-tweet" data-theme="light"><a href="https://x.com/Dotcast_/status/1848742446077022372"></a></blockquote></div>
+      <div class="tweet-slot"><blockquote class="twitter-tweet" data-theme="light"><a href="https://x.com/rene__hdz/status/1839374621579305412"></a></blockquote></div>
+      <div class="tweet-slot"><blockquote class="twitter-tweet" data-theme="light"><a href="https://x.com/holaNFT/status/1834324128645390514"></a></blockquote></div>
+      <div class="tweet-slot"><blockquote class="twitter-tweet" data-theme="light"><a href="https://x.com/Alternun_io/status/1834325264488370335"></a></blockquote></div>
+      <div class="tweet-slot"><blockquote class="twitter-tweet" data-theme="light"><a href="https://x.com/VaraNetwork_ES/status/1834409833560506582"></a></blockquote></div>
+      <div class="tweet-slot"><blockquote class="twitter-tweet" data-theme="light"><a href="https://x.com/VaraNetwork_ES/status/1834377282221121746"></a></blockquote></div>
+      <div class="tweet-slot"><blockquote class="twitter-tweet" data-theme="light"><a href="https://x.com/Juminstock/status/1832067666950889504"></a></blockquote></div>
+      <div class="tweet-slot"><blockquote class="twitter-tweet" data-theme="light"><a href="https://x.com/BandaWeb3/status/1826363934972281243"></a></blockquote></div>
+    </div>
+  </div>
+</section>
+
 <!-- BLOG -->
 <section class="section section-alt" id="blog">
   <div class="section-inner">
@@ -1495,8 +1535,19 @@ function showPage(id) {
 // logo goes home
 document.querySelector('.nav-logo').addEventListener('click', () => showPage('home'));
 
+// tweets drag scroll
+const ttrack = document.getElementById('tweets-track');
+if (ttrack) {
+  let tdrag=false, tsx, tsl;
+  ttrack.addEventListener('mousedown', e=>{tdrag=true;tsx=e.pageX-ttrack.offsetLeft;tsl=ttrack.scrollLeft;});
+  ttrack.addEventListener('mouseleave', ()=>tdrag=false);
+  ttrack.addEventListener('mouseup', ()=>tdrag=false);
+  ttrack.addEventListener('mousemove', e=>{if(!tdrag)return;e.preventDefault();ttrack.scrollLeft=tsl-(e.pageX-ttrack.offsetLeft-tsx)*1.4;});
+}
+
 // init
 showPage('home');
 </script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>
