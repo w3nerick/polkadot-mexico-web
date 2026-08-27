@@ -408,8 +408,9 @@ nav {
 }
 .soc-card:hover { border-color: var(--black); background: var(--black); }
 .soc-card:hover .soc-icon, .soc-card:hover h4, .soc-card:hover p { color: var(--bg); }
+.soc-card:hover .soc-icon svg { fill: var(--bg); }
 .soc-icon { display: flex; justify-content: center; margin-bottom: 16px; color: var(--black); transition: color .15s; }
-.soc-icon svg { width: 28px; height: 28px; }
+.soc-icon svg { width: 28px; height: 28px; fill: currentColor; display: block; }
 .soc-card h4 { font-family: 'DM Serif Display', serif; font-size: 15px; font-weight: 700; color: var(--black); margin-bottom: 5px; transition: color .15s; }
 .soc-card p { font-size: 11px; color: var(--mid); font-family: 'Space Mono', monospace; transition: color .15s; }
 
