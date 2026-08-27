@@ -392,20 +392,27 @@ nav {
 .marquee-row { display: flex; overflow: hidden; }
 .marquee-inner {
   display: flex; gap: 16px; flex-shrink: 0;
-  animation: marquee-left 50s linear infinite;
+  animation: marquee-left 30s linear infinite;
 }
-.marquee-inner.reverse { animation: marquee-right 50s linear infinite; }
+.marquee-inner.reverse { animation: marquee-right 30s linear infinite; }
 .marquee-row:hover .marquee-inner { animation-play-state: paused; }
 @keyframes marquee-left  { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 @keyframes marquee-right { 0%{transform:translateX(-50%)} 100%{transform:translateX(0)} }
 .tw-frame {
-  flex-shrink: 0; width: 320px; min-height: 420px;
-  overflow: hidden;
+  flex-shrink: 0; width: 320px; height: 380px;
+  overflow: hidden; position: relative;
   pointer-events: none;
+  background: #111;
+  border: 1px solid #1e1e1e;
+}
+.tw-frame::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 64px;
+  background: linear-gradient(to bottom, transparent, #111);
+  pointer-events: none; z-index: 2;
 }
 .marquee-row:hover .tw-frame { pointer-events: auto; }
 .tw-frame .twitter-tweet { margin: 0 !important; }
-@media (max-width: 768px) { .tw-frame { width: 270px; } }
+@media (max-width: 768px) { .tw-frame { width: 270px; height: 340px; } }
 
 /* ── BLOG ── */
 .blog-grid {
@@ -1169,16 +1176,54 @@ footer {
         <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/rene__hdz/status/1839374621579305412"></a></blockquote></div>
         <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/holaNFT/status/1834324128645390514"></a></blockquote></div>
         <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/Alternun_io/status/1834325264488370335"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/VaraNetwork_ES/status/1834409833560506582"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/VaraNetwork_ES/status/1834377282221121746"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/Juminstock/status/1832067666950889504"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/BandaWeb3/status/1826363934972281243"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/Cripto_street/status/1794536984175624672"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/th3hodlfather/status/1778829301216895484"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/PolkadotMexico_/status/1780026933406839017"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/CrustNetwork/status/1777953316858999157"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/PolkadotMexico_/status/1777929421493567529"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/vstreet_io/status/1777089213382475807"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/0xTixter/status/1776449574309105730"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/0xTixter/status/1776443497295343697"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/Amaurylr/status/1776462140775309631"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/marcrypted/status/1776454036981445081"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/driade_1/status/1776449106489065720"></a></blockquote></div>
       </div>
     </div>
     <!-- FILA 2 → derecha -->
     <div class="marquee-row">
       <div class="marquee-inner reverse" id="mq2">
-        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/VaraNetwork_ES/status/1834409833560506582"></a></blockquote></div>
-        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/VaraNetwork_ES/status/1834377282221121746"></a></blockquote></div>
-        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/Juminstock/status/1832067666950889504"></a></blockquote></div>
-        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/BandaWeb3/status/1826363934972281243"></a></blockquote></div>
-        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/PolkadotMexico_/status/1833229529097375919"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/marcrypted/status/1776453617500750071"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/th3hodlfather/status/1776445233858764934"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/alannetwork_/status/1776436713075945605"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/alansicairos_/status/1776116251670069257"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/PolkadotMexico_/status/1775961166289768666"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/PolkadotMexico_/status/1775552445239709889"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/RodrigoHdezA/status/1773200908760781013"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/driade_1/status/1758707218877215119"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/le_mec/status/1758474368324190378"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/PolkadotMexico_/status/1754502152083345856"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/robinhodl69/status/1604876501312188427"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/w3nerick/status/1604911221957951497"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/PolkadotMexico_/status/1603911341172989957"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/nachomartinezes/status/1603817339572584455"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/Pavel_Salas/status/1580710285819940864"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/luisreve85/status/1572033961685286912"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/luisreve85/status/1561140833612611586"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/PolkadotMexico_/status/1686063248951697408"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/PolkadotMexico_/status/1683509460327874560"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/PolkadotMexico_/status/1681432459580256256"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/robinhodl69/status/1682541445448716289"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/JuanCar16972378/status/1682571619640721408"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/PolkadotDecoded/status/1687052749463035905"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/PolkadotMexico_/status/1675258339133992962"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/PolkadotMexico_/status/1674610072649965569"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/PolkadotMexico_/status/1649517660516896768"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/ozkite/status/1647094477083889666"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/PolkadotMexico_/status/1603633837422034945"></a></blockquote></div>
       </div>
     </div>
   </div>
