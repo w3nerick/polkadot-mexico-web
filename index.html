@@ -25,7 +25,7 @@
   --max: 1080px;
 }
 html { scroll-behavior: smooth; }
-body { font-family: 'Space Grotesk', sans-serif; background: var(--bg); color: var(--black); overflow-x: hidden; overflow-y: hidden; }
+body { font-family: 'Space Grotesk', sans-serif; background: var(--bg); color: var(--black); overflow-x: hidden; }
 
 /* ── LOADER ── */
 #pk-loader {
@@ -615,6 +615,9 @@ footer {
     el.classList.add('hide');
     setTimeout(()=>{ cancelAnimationFrame(rafId); el.style.display='none'; document.body.style.overflowY='auto'; },650);
   }
+
+  // Bloquear scroll mientras dura el loader
+  document.body.style.overflow='hidden';
 
   // Mínimo 3s de animación, máximo 6s sin importar cuánto tarde la página
   let hidden=false;
@@ -1322,7 +1325,7 @@ const gData = {
   ]
 };
 function openLB(g,i){currentG=g;currentIdx=i;document.getElementById('lb-img').src=gData[g][i];document.getElementById('lb').classList.add('open');document.body.style.overflow='hidden';}
-function closeLB(){document.getElementById('lb').classList.remove('open');document.body.style.overflow='';}
+function closeLB(){document.getElementById('lb').classList.remove('open');document.body.style.overflow='auto';}
 function closeLBBg(e){if(e.target===document.getElementById('lb'))closeLB();}
 function navLB(d){const imgs=gData[currentG];currentIdx=(currentIdx+d+imgs.length)%imgs.length;document.getElementById('lb-img').src=imgs[currentIdx];}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB();if(e.key==='ArrowRight')navLB(1);if(e.key==='ArrowLeft')navLB(-1);});
