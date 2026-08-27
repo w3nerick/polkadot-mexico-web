@@ -383,39 +383,6 @@ nav {
 .sp-card h3 { font-family: 'DM Serif Display', serif; font-size: 17px; font-weight: 700; color: var(--black); margin-bottom: 10px; letter-spacing: 0; line-height: 1.2; }
 .sp-card p { font-size: 14px; color: var(--mid); line-height: 1.7; }
 
-/* ── TWEETS MARQUEE ── */
-#posts-x { background: #0a0a0a; border-bottom: 1px solid #222; overflow: hidden; }
-#posts-x .eyebrow { color: var(--pink); }
-#posts-x .sec-title { color: #fff; }
-#posts-x .sec-title em { color: var(--pink); }
-.marquee-wrap { display: flex; flex-direction: column; gap: 16px; padding-bottom: 8px; }
-.marquee-row { display: flex; overflow: hidden; }
-.marquee-inner {
-  display: flex; gap: 16px; flex-shrink: 0;
-  animation: marquee-left 35s linear infinite;
-}
-.marquee-inner.reverse { animation: marquee-right 35s linear infinite; }
-.marquee-row:hover .marquee-inner { animation-play-state: paused; }
-@keyframes marquee-left  { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
-@keyframes marquee-right { 0%{transform:translateX(-50%)} 100%{transform:translateX(0)} }
-.tw-card {
-  flex-shrink: 0; width: 280px;
-  display: block; text-decoration: none;
-  border: 1px solid #1e1e1e; overflow: hidden;
-  transition: border-color .2s; position: relative;
-}
-.tw-card:hover { border-color: #555; }
-.tw-card img {
-  width: 100%; height: 340px;
-  object-fit: cover; object-position: top;
-  display: block; loading: lazy;
-}
-.tw-card::after {
-  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 60px;
-  background: linear-gradient(to bottom, transparent, #0a0a0a);
-  pointer-events: none;
-}
-@media (max-width: 768px) { .tw-card { width: 240px; } .tw-card img { height: 280px; } }
 
 /* ── BLOG ── */
 .blog-grid {
@@ -1162,76 +1129,6 @@ footer {
   </div>
 </section>
 
-<!-- COMUNIDAD EN X -->
-<section class="section" id="posts-x">
-  <div class="section-inner" style="max-width:100%;padding:0">
-    <div style="max-width:var(--max);margin:0 auto;padding:0 48px 64px" class="rv">
-      <span class="eyebrow">La comunidad habla</span>
-      <h2 class="sec-title">Posts de la <em>comunidad</em></h2>
-    </div>
-  </div>
-  <div class="marquee-wrap">
-    <!-- FILA 1 → izquierda (12 cards) -->
-    <div class="marquee-row">
-      <div class="marquee-inner">
-        <a class="tw-card" href="https://x.com/PolkadotMexico_/status/1833229529097375919" target="_blank"><img src="https://iad.microlink.io/u4_4yhMhxCkIlO97Kfz2sKvALz-dtxPn4kdANIyHOmmOwNdavAV6PPaFp7g8WLbIo8IyWRmpcD7-YeO8Hi6BLg.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/Dotcast_/status/1848742446077022372" target="_blank"><img src="https://iad.microlink.io/L2AYZDygkFAs12Fz8RKBU0on4G7THqZSViT0ksWM-zYzrT4QcJhb75EWuoAS7xjwhZkpTp84mHE8I6punbHxFQ.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/rene__hdz/status/1839374621579305412" target="_blank"><img src="https://iad.microlink.io/fnpMSqYU4NjrLlkZwRovVSx-Vl762rGxXYsqbIJ_8zlG2IYAnzpB5MuLEJdwPz24XpTh3keWY92wSzqdBKjWhg.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/holaNFT/status/1834324128645390514" target="_blank"><img src="https://iad.microlink.io/4jbRDias3aCjgJ0kEp4iw-x4bqMmoaNMX4SAjNz-eTLuOZsydAtcj0CojD2ZR5MSjqkRsD_VzOfqsPLR_Uzd9Q.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/Alternun_io/status/1834325264488370335" target="_blank"><img src="https://iad.microlink.io/Wb_FyPfCj7_whCo_X-NvLmFQYw596K_XowrKbrPVhpwL6c3k-4I8Oh_xKi3VaJ89oqLlOSjxulvq-7ifttkmCA.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/VaraNetwork_ES/status/1834409833560506582" target="_blank"><img src="https://iad.microlink.io/UmkvaSXD6cBKE1xP_pT2niN8po_2CN2og0SKxJaJ1b1w1Vz-ZmW6GOZnaiR24xRm2B4E8KKd6OOFqVLytDBRdg.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/VaraNetwork_ES/status/1834377282221121746" target="_blank"><img src="https://iad.microlink.io/NE6YnK0L94SR0IepI4xXPdCzBbN_uwo2YzvOxlyLynd9dJohnxnEHDH7hFHlJTwkHmIAq74-K8qK8QCW0pipzw.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/BandaWeb3/status/1826363934972281243" target="_blank"><img src="https://iad.microlink.io/NnC4sBSv12_b0zQfbWgpgnqV0_5YsjRDVcutlxKyv1pCCEKl53GBVW8mBTFDqshTDip3Gf_zxDK9E23AjYawWw.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/Cripto_street/status/1794536984175624672" target="_blank"><img src="https://iad.microlink.io/OXR-tSB7tMqwks8vUwwke36xjvqiYvoFYhVZ3tmf8sRODseiTJ7QVge5mH5koD-dANhJLLKiq-92x75VyaEa_A.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/th3hodlfather/status/1778829301216895484" target="_blank"><img src="https://iad.microlink.io/LZvuZ5Sn_cPyALXa9LUL8-Lnyu2a3YTHiFrF_T9xbRFZ0wR9p0e0ea0HI8PY2KonoQImdmdJ-HJolvSitKVhNg.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/PolkadotMexico_/status/1780026933406839017" target="_blank"><img src="https://iad.microlink.io/WHCFUKW4cnHx5D2tQNV5K4k5vDZ2I4PCeq6ds8CT4D08ju0Z300XGC7iUvgWCgU3aKuCQoR1qlUN438-h7-Y2w.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/CrustNetwork/status/1777953316858999157" target="_blank"><img src="https://iad.microlink.io/pWRCWGlSsKBHxJ8wXqBzEihlk7vSRVsMIEVwd6dsCv9XMbgSEo130ecVtdwK8mhl5KJ7KQMJ9Ovs0O3DrVhNJA.png" loading="lazy" alt="Post"></a>
-        <!-- duplicado para loop -->
-        <a class="tw-card" href="https://x.com/PolkadotMexico_/status/1833229529097375919" target="_blank"><img src="https://iad.microlink.io/u4_4yhMhxCkIlO97Kfz2sKvALz-dtxPn4kdANIyHOmmOwNdavAV6PPaFp7g8WLbIo8IyWRmpcD7-YeO8Hi6BLg.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/Dotcast_/status/1848742446077022372" target="_blank"><img src="https://iad.microlink.io/L2AYZDygkFAs12Fz8RKBU0on4G7THqZSViT0ksWM-zYzrT4QcJhb75EWuoAS7xjwhZkpTp84mHE8I6punbHxFQ.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/rene__hdz/status/1839374621579305412" target="_blank"><img src="https://iad.microlink.io/fnpMSqYU4NjrLlkZwRovVSx-Vl762rGxXYsqbIJ_8zlG2IYAnzpB5MuLEJdwPz24XpTh3keWY92wSzqdBKjWhg.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/holaNFT/status/1834324128645390514" target="_blank"><img src="https://iad.microlink.io/4jbRDias3aCjgJ0kEp4iw-x4bqMmoaNMX4SAjNz-eTLuOZsydAtcj0CojD2ZR5MSjqkRsD_VzOfqsPLR_Uzd9Q.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/Alternun_io/status/1834325264488370335" target="_blank"><img src="https://iad.microlink.io/Wb_FyPfCj7_whCo_X-NvLmFQYw596K_XowrKbrPVhpwL6c3k-4I8Oh_xKi3VaJ89oqLlOSjxulvq-7ifttkmCA.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/VaraNetwork_ES/status/1834409833560506582" target="_blank"><img src="https://iad.microlink.io/UmkvaSXD6cBKE1xP_pT2niN8po_2CN2og0SKxJaJ1b1w1Vz-ZmW6GOZnaiR24xRm2B4E8KKd6OOFqVLytDBRdg.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/VaraNetwork_ES/status/1834377282221121746" target="_blank"><img src="https://iad.microlink.io/NE6YnK0L94SR0IepI4xXPdCzBbN_uwo2YzvOxlyLynd9dJohnxnEHDH7hFHlJTwkHmIAq74-K8qK8QCW0pipzw.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/BandaWeb3/status/1826363934972281243" target="_blank"><img src="https://iad.microlink.io/NnC4sBSv12_b0zQfbWgpgnqV0_5YsjRDVcutlxKyv1pCCEKl53GBVW8mBTFDqshTDip3Gf_zxDK9E23AjYawWw.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/Cripto_street/status/1794536984175624672" target="_blank"><img src="https://iad.microlink.io/OXR-tSB7tMqwks8vUwwke36xjvqiYvoFYhVZ3tmf8sRODseiTJ7QVge5mH5koD-dANhJLLKiq-92x75VyaEa_A.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/th3hodlfather/status/1778829301216895484" target="_blank"><img src="https://iad.microlink.io/LZvuZ5Sn_cPyALXa9LUL8-Lnyu2a3YTHiFrF_T9xbRFZ0wR9p0e0ea0HI8PY2KonoQImdmdJ-HJolvSitKVhNg.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/PolkadotMexico_/status/1780026933406839017" target="_blank"><img src="https://iad.microlink.io/WHCFUKW4cnHx5D2tQNV5K4k5vDZ2I4PCeq6ds8CT4D08ju0Z300XGC7iUvgWCgU3aKuCQoR1qlUN438-h7-Y2w.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/CrustNetwork/status/1777953316858999157" target="_blank"><img src="https://iad.microlink.io/pWRCWGlSsKBHxJ8wXqBzEihlk7vSRVsMIEVwd6dsCv9XMbgSEo130ecVtdwK8mhl5KJ7KQMJ9Ovs0O3DrVhNJA.png" loading="lazy" alt="Post"></a>
-      </div>
-    </div>
-    <!-- FILA 2 → derecha (11 cards) -->
-    <div class="marquee-row">
-      <div class="marquee-inner reverse">
-        <a class="tw-card" href="https://x.com/vstreet_io/status/1777089213382475807" target="_blank"><img src="https://iad.microlink.io/E2fql4zCEMFEnOfT5b59BEramsDjj9zIqWIAA3hf1Z2nRUr3OmL5PkEo1Kqo9Pd4YzESh5DnSJpcZVRZCZgQgw.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/0xTixter/status/1776449574309105730" target="_blank"><img src="https://iad.microlink.io/x_pip3tPGzqUPWZ1FdpgZiTeDfDR4Ex6Fi4YoxXHH9XwabiKlLz-zTPwrIO2Wie6lThEvMYgiaYBWisMEpU4Nw.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/0xTixter/status/1776443497295343697" target="_blank"><img src="https://iad.microlink.io/rov90GcV78eRI0twWxeKhVG6TfKKOdvVSXWIJeRJT5SX48VWsCTY3KSVfRFeym9QyKNDhySOWrNQrbEcL8QxTQ.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/Amaurylr/status/1776462140775309631" target="_blank"><img src="https://iad.microlink.io/Y3_ksSbmsl-0FsFRPjkDN_0InRoyuU9lcbb_nRbxbttbE_RlD1Q4UBgxmlDardaOBD2fVz73dDxDueyBsCJy5A.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/marcrypted/status/1776454036981445081" target="_blank"><img src="https://iad.microlink.io/uXkxLf4lI6Md2yrJiXHnWpmHNByBmrQZlLAXQB55dqQDedo3bRhVzFRwDu-boxHHGlC0mQDsWX1QU8-Z8uNmaw.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/driade_1/status/1776449106489065720" target="_blank"><img src="https://iad.microlink.io/Y7-KJBLqOF5TDqSRHQxt347rIr1b9GlhT50LcyZW0kIae2vyiEZDF51pZdAcFML3Toe2cWDZY0ggCWMZyAg6Ig.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/marcrypted/status/1776453617500750071" target="_blank"><img src="https://iad.microlink.io/tgEQRCk7qANY4_aSfpTQI8GVwyq95vnMlFCkA2JSgbU0UfQ5zLcSkWOE8bLHt-wNpOdTBYTw0BTsTRCop8oKrw.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/th3hodlfather/status/1776445233858764934" target="_blank"><img src="https://iad.microlink.io/G9DijtTAd-L6LjqIue7XPX7C1HGOx6JdpKqFViz7IBJyj9t7PR8wGVMD9AIgxh-ConUuxRdTUbnb7MN-AQLn3w.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/alannetwork_/status/1776436713075945605" target="_blank"><img src="https://iad.microlink.io/MJjyyg9V5qajNMERUUYRLuOHvtg1NxIDfFjUdh0ROfm3S-s5MOiY946PpQ2zI-cOHawjqbVbT4PgK9_KVhIdpg.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/alansicairos_/status/1776116251670069257" target="_blank"><img src="https://iad.microlink.io/iE_-gbEC-avisZOeZvjFlHmIQ2oyk-WExAK2O5CVby1m3BPKwMWMIQ1N9xVw4DD9WHHr-HWVe9Ud2QZyhey5_A.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/PolkadotMexico_/status/1775961166289768666" target="_blank"><img src="https://iad.microlink.io/26Bp-Xcv1-WcrAGl6i2DzKChRzCajBiLjGeCpe6mLWCvagjA4cn0rASCfnP7ITWxkVI5mZlTTDX3NTdwJ1lDeg.png" loading="lazy" alt="Post"></a>
-        <!-- duplicado para loop -->
-        <a class="tw-card" href="https://x.com/vstreet_io/status/1777089213382475807" target="_blank"><img src="https://iad.microlink.io/E2fql4zCEMFEnOfT5b59BEramsDjj9zIqWIAA3hf1Z2nRUr3OmL5PkEo1Kqo9Pd4YzESh5DnSJpcZVRZCZgQgw.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/0xTixter/status/1776449574309105730" target="_blank"><img src="https://iad.microlink.io/x_pip3tPGzqUPWZ1FdpgZiTeDfDR4Ex6Fi4YoxXHH9XwabiKlLz-zTPwrIO2Wie6lThEvMYgiaYBWisMEpU4Nw.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/0xTixter/status/1776443497295343697" target="_blank"><img src="https://iad.microlink.io/rov90GcV78eRI0twWxeKhVG6TfKKOdvVSXWIJeRJT5SX48VWsCTY3KSVfRFeym9QyKNDhySOWrNQrbEcL8QxTQ.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/Amaurylr/status/1776462140775309631" target="_blank"><img src="https://iad.microlink.io/Y3_ksSbmsl-0FsFRPjkDN_0InRoyuU9lcbb_nRbxbttbE_RlD1Q4UBgxmlDardaOBD2fVz73dDxDueyBsCJy5A.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/marcrypted/status/1776454036981445081" target="_blank"><img src="https://iad.microlink.io/uXkxLf4lI6Md2yrJiXHnWpmHNByBmrQZlLAXQB55dqQDedo3bRhVzFRwDu-boxHHGlC0mQDsWX1QU8-Z8uNmaw.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/driade_1/status/1776449106489065720" target="_blank"><img src="https://iad.microlink.io/Y7-KJBLqOF5TDqSRHQxt347rIr1b9GlhT50LcyZW0kIae2vyiEZDF51pZdAcFML3Toe2cWDZY0ggCWMZyAg6Ig.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/marcrypted/status/1776453617500750071" target="_blank"><img src="https://iad.microlink.io/tgEQRCk7qANY4_aSfpTQI8GVwyq95vnMlFCkA2JSgbU0UfQ5zLcSkWOE8bLHt-wNpOdTBYTw0BTsTRCop8oKrw.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/th3hodlfather/status/1776445233858764934" target="_blank"><img src="https://iad.microlink.io/G9DijtTAd-L6LjqIue7XPX7C1HGOx6JdpKqFViz7IBJyj9t7PR8wGVMD9AIgxh-ConUuxRdTUbnb7MN-AQLn3w.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/alannetwork_/status/1776436713075945605" target="_blank"><img src="https://iad.microlink.io/MJjyyg9V5qajNMERUUYRLuOHvtg1NxIDfFjUdh0ROfm3S-s5MOiY946PpQ2zI-cOHawjqbVbT4PgK9_KVhIdpg.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/alansicairos_/status/1776116251670069257" target="_blank"><img src="https://iad.microlink.io/iE_-gbEC-avisZOeZvjFlHmIQ2oyk-WExAK2O5CVby1m3BPKwMWMIQ1N9xVw4DD9WHHr-HWVe9Ud2QZyhey5_A.png" loading="lazy" alt="Post"></a>
-        <a class="tw-card" href="https://x.com/PolkadotMexico_/status/1775961166289768666" target="_blank"><img src="https://iad.microlink.io/26Bp-Xcv1-WcrAGl6i2DzKChRzCajBiLjGeCpe6mLWCvagjA4cn0rASCfnP7ITWxkVI5mZlTTDX3NTdwJ1lDeg.png" loading="lazy" alt="Post"></a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- BLOG -->
 <section class="section section-alt" id="blog">
   <div class="section-inner">
@@ -1600,26 +1497,6 @@ function showPage(id) {
 
 // logo goes home
 document.querySelector('.nav-logo').addEventListener('click', () => showPage('home'));
-
-// duplicate marquee rows for infinite loop after Twitter renders
-function dupMarquee(id) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  const clone = el.cloneNode(true);
-  clone.removeAttribute('id');
-  // remove blockquotes from clone to avoid re-render
-  clone.querySelectorAll('blockquote').forEach(bq => {
-    const tw = bq.closest('.tw-frame');
-    if (tw) tw.style.visibility = 'hidden';
-  });
-  el.parentNode.appendChild(clone);
-}
-// wait for twitter widgets to render then duplicate
-if (window.twttr && window.twttr.ready) {
-  window.twttr.ready(() => { dupMarquee('mq1'); dupMarquee('mq2'); });
-} else {
-  setTimeout(() => { dupMarquee('mq1'); dupMarquee('mq2'); }, 3000);
-}
 
 // init
 showPage('home');
