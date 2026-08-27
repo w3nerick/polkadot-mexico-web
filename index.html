@@ -615,11 +615,12 @@ footer {
     setTimeout(()=>{ cancelAnimationFrame(rafId); el.style.display='none'; document.body.style.overflowY='auto'; },650);
   }
 
-  // Esperar a que la página cargue + mínimo 3s
-  let pageReady=false, timerDone=false;
-  function tryHide(){ if(pageReady && timerDone) hideLoader(); }
-  setTimeout(()=>{ timerDone=true; tryHide(); }, 3000);
-  window.addEventListener('load', ()=>{ pageReady=true; tryHide(); });
+  // Mínimo 3s de animación, máximo 6s sin importar cuánto tarde la página
+  let hidden=false;
+  function tryHide(){ if(!hidden){ hidden=true; hideLoader(); } }
+  setTimeout(tryHide, 3000);
+  setTimeout(tryHide, 6000);
+  window.addEventListener('load', ()=>{ setTimeout(tryHide, 3000); });
 
   SRC.onload = ()=>{ rafId=requestAnimationFrame(draw); };
   if(SRC.complete){ rafId=requestAnimationFrame(draw); }
