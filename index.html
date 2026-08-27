@@ -25,7 +25,7 @@
   --max: 1080px;
 }
 html { scroll-behavior: smooth; }
-body { font-family: 'Space Grotesk', sans-serif; background: var(--bg); color: var(--black); overflow-x: hidden; }
+body { font-family: 'Space Grotesk', sans-serif; background: var(--bg); color: var(--black); overflow-x: hidden; overflow-y: hidden; }
 
 /* ── LOADER ── */
 #pk-loader {
@@ -612,7 +612,7 @@ footer {
   function hideLoader(){
     const el=document.getElementById('pk-loader');
     el.classList.add('hide');
-    setTimeout(()=>{ cancelAnimationFrame(rafId); el.style.display='none'; },650);
+    setTimeout(()=>{ cancelAnimationFrame(rafId); el.style.display='none'; document.body.style.overflowY='auto'; },650);
   }
 
   // Esperar a que la página cargue + mínimo 3s
@@ -649,7 +649,7 @@ footer {
 <section id="hero">
   <div class="hero-bg">
     <video id="hero-vid" autoplay muted playsinline loop>
-      <source src="assets/videos/gm-mexico.mp4" type="video/mp4">
+      <source src="assets/videos/Polkadot Mexico.mp4" type="video/mp4">
     </video>
   </div>
   <div class="hero-dither"></div>
@@ -1144,7 +1144,6 @@ footer {
 </div><!-- /page-cta-footer -->
 
 <script>
-// hero video loop (gm-mexico.mp4 ya tiene loop)
 
 function toggleMenu() { document.getElementById('navlinks').classList.toggle('open'); }
 document.querySelectorAll('#navlinks a').forEach(a => a.addEventListener('click', () => document.getElementById('navlinks').classList.remove('open')));
