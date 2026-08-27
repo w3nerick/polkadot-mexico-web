@@ -384,7 +384,7 @@ nav {
 .sp-card p { font-size: 14px; color: var(--mid); line-height: 1.7; }
 
 /* ── TWEETS MARQUEE ── */
-#posts-x { background: var(--black); border-bottom: 1px solid #222; overflow: hidden; }
+#posts-x { background: #0a0a0a; border-bottom: 1px solid #222; overflow: hidden; }
 #posts-x .eyebrow { color: var(--pink); }
 #posts-x .sec-title { color: #fff; }
 #posts-x .sec-title em { color: var(--pink); }
@@ -392,34 +392,20 @@ nav {
 .marquee-row { display: flex; overflow: hidden; }
 .marquee-inner {
   display: flex; gap: 16px; flex-shrink: 0;
-  animation: marquee-left 40s linear infinite;
+  animation: marquee-left 50s linear infinite;
 }
-.marquee-inner.reverse { animation: marquee-right 40s linear infinite; }
+.marquee-inner.reverse { animation: marquee-right 50s linear infinite; }
 .marquee-row:hover .marquee-inner { animation-play-state: paused; }
 @keyframes marquee-left  { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 @keyframes marquee-right { 0%{transform:translateX(-50%)} 100%{transform:translateX(0)} }
-.tw-card {
-  flex-shrink: 0; width: 300px;
-  background: #111; border: 1px solid #2a2a2a;
-  padding: 20px; display: flex; flex-direction: column; gap: 12px;
-  transition: border-color .2s;
+.tw-frame {
+  flex-shrink: 0; width: 320px; min-height: 420px;
+  overflow: hidden;
+  pointer-events: none;
 }
-.tw-card:hover { border-color: #444; }
-.tw-head { display: flex; align-items: center; gap: 10px; }
-.tw-avatar {
-  width: 36px; height: 36px; border-radius: 50%;
-  background: #222; overflow: hidden; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'DM Serif Display', serif; font-size: 15px; color: var(--pink);
-}
-.tw-names { flex: 1; min-width: 0; }
-.tw-name { font-size: 13px; font-weight: 700; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.tw-handle { font-size: 11px; color: #666; font-family: 'Space Mono', monospace; }
-.tw-logo { color: #fff; opacity: .4; flex-shrink: 0; }
-.tw-text { font-size: 13px; color: #bbb; line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
-.tw-link { font-family: 'Space Mono', monospace; font-size: 10px; color: #555; text-decoration: none; text-transform: uppercase; letter-spacing: .08em; transition: color .2s; }
-.tw-link:hover { color: var(--pink); }
-@media (max-width: 768px) { .tw-card { width: 260px; } }
+.marquee-row:hover .tw-frame { pointer-events: auto; }
+.tw-frame .twitter-tweet { margin: 0 !important; }
+@media (max-width: 768px) { .tw-frame { width: 270px; } }
 
 /* ── BLOG ── */
 .blog-grid {
@@ -1177,34 +1163,22 @@ footer {
   <div class="marquee-wrap">
     <!-- FILA 1 → izquierda -->
     <div class="marquee-row">
-      <div class="marquee-inner">
-        <!-- original -->
-        <div class="tw-card"><div class="tw-head"><div class="tw-avatar">P</div><div class="tw-names"><div class="tw-name">Polkadot México</div><div class="tw-handle">@PolkadotMexico_</div></div><svg class="tw-logo" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div><p class="tw-text">🇲🇽 Polkadot México presente en Talent Land 2025. Conectando el ecosistema blockchain con la comunidad tech más grande de Latinoamérica. ¡Gracias a todos los que nos visitaron!</p><a href="https://x.com/PolkadotMexico_/status/1833229529097375919" target="_blank" class="tw-link">Ver post →</a></div>
-        <div class="tw-card"><div class="tw-head"><div class="tw-avatar">D</div><div class="tw-names"><div class="tw-name">Dotcast</div><div class="tw-handle">@Dotcast_</div></div><svg class="tw-logo" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div><p class="tw-text">Estuvo increíble el evento de @PolkadotMexico_ 🔥 Gran energía, grandes proyectos y mucho talento mexicano construyendo sobre Polkadot.</p><a href="https://x.com/Dotcast_/status/1848742446077022372" target="_blank" class="tw-link">Ver post →</a></div>
-        <div class="tw-card"><div class="tw-head"><div class="tw-avatar">R</div><div class="tw-names"><div class="tw-name">René Hdz</div><div class="tw-handle">@rene__hdz</div></div><svg class="tw-logo" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div><p class="tw-text">Hoy estuve en el evento de @PolkadotMexico_ y quedé muy impresionado con el nivel técnico de los speakers. El ecosistema Polkadot en México está creciendo 💪</p><a href="https://x.com/rene__hdz/status/1839374621579305412" target="_blank" class="tw-link">Ver post →</a></div>
-        <div class="tw-card"><div class="tw-head"><div class="tw-avatar">H</div><div class="tw-names"><div class="tw-name">holaNFT</div><div class="tw-handle">@holaNFT</div></div><svg class="tw-logo" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div><p class="tw-text">Qué buena vibra la del evento de @PolkadotMexico_ 🫶 Comunidad Web3 mexicana unida construyendo el futuro descentralizado desde Latinoamérica.</p><a href="https://x.com/holaNFT/status/1834324128645390514" target="_blank" class="tw-link">Ver post →</a></div>
-        <div class="tw-card"><div class="tw-head"><div class="tw-avatar">A</div><div class="tw-names"><div class="tw-name">Alternun</div><div class="tw-handle">@Alternun_io</div></div><svg class="tw-logo" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div><p class="tw-text">Gracias @PolkadotMexico_ por el espacio para presentar Alternun ante la comunidad. El nivel de interés en proyectos DeFi sobre Polkadot es impresionante 🌿</p><a href="https://x.com/Alternun_io/status/1834325264488370335" target="_blank" class="tw-link">Ver post →</a></div>
-        <!-- duplicado para loop -->
-        <div class="tw-card"><div class="tw-head"><div class="tw-avatar">P</div><div class="tw-names"><div class="tw-name">Polkadot México</div><div class="tw-handle">@PolkadotMexico_</div></div><svg class="tw-logo" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div><p class="tw-text">🇲🇽 Polkadot México presente en Talent Land 2025. Conectando el ecosistema blockchain con la comunidad tech más grande de Latinoamérica. ¡Gracias a todos los que nos visitaron!</p><a href="https://x.com/PolkadotMexico_/status/1833229529097375919" target="_blank" class="tw-link">Ver post →</a></div>
-        <div class="tw-card"><div class="tw-head"><div class="tw-avatar">D</div><div class="tw-names"><div class="tw-name">Dotcast</div><div class="tw-handle">@Dotcast_</div></div><svg class="tw-logo" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div><p class="tw-text">Estuvo increíble el evento de @PolkadotMexico_ 🔥 Gran energía, grandes proyectos y mucho talento mexicano construyendo sobre Polkadot.</p><a href="https://x.com/Dotcast_/status/1848742446077022372" target="_blank" class="tw-link">Ver post →</a></div>
-        <div class="tw-card"><div class="tw-head"><div class="tw-avatar">R</div><div class="tw-names"><div class="tw-name">René Hdz</div><div class="tw-handle">@rene__hdz</div></div><svg class="tw-logo" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div><p class="tw-text">Hoy estuve en el evento de @PolkadotMexico_ y quedé muy impresionado con el nivel técnico de los speakers. El ecosistema Polkadot en México está creciendo 💪</p><a href="https://x.com/rene__hdz/status/1839374621579305412" target="_blank" class="tw-link">Ver post →</a></div>
-        <div class="tw-card"><div class="tw-head"><div class="tw-avatar">H</div><div class="tw-names"><div class="tw-name">holaNFT</div><div class="tw-handle">@holaNFT</div></div><svg class="tw-logo" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div><p class="tw-text">Qué buena vibra la del evento de @PolkadotMexico_ 🫶 Comunidad Web3 mexicana unida construyendo el futuro descentralizado desde Latinoamérica.</p><a href="https://x.com/holaNFT/status/1834324128645390514" target="_blank" class="tw-link">Ver post →</a></div>
-        <div class="tw-card"><div class="tw-head"><div class="tw-avatar">A</div><div class="tw-names"><div class="tw-name">Alternun</div><div class="tw-handle">@Alternun_io</div></div><svg class="tw-logo" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div><p class="tw-text">Gracias @PolkadotMexico_ por el espacio para presentar Alternun ante la comunidad. El nivel de interés en proyectos DeFi sobre Polkadot es impresionante 🌿</p><a href="https://x.com/Alternun_io/status/1834325264488370335" target="_blank" class="tw-link">Ver post →</a></div>
+      <div class="marquee-inner" id="mq1">
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/PolkadotMexico_/status/1833229529097375919"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/Dotcast_/status/1848742446077022372"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/rene__hdz/status/1839374621579305412"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/holaNFT/status/1834324128645390514"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/Alternun_io/status/1834325264488370335"></a></blockquote></div>
       </div>
     </div>
     <!-- FILA 2 → derecha -->
     <div class="marquee-row">
-      <div class="marquee-inner reverse">
-        <!-- original -->
-        <div class="tw-card"><div class="tw-head"><div class="tw-avatar">V</div><div class="tw-names"><div class="tw-name">Vara Network ES</div><div class="tw-handle">@VaraNetwork_ES</div></div><svg class="tw-logo" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div><p class="tw-text">¡Excelente evento con @PolkadotMexico_! Vara Network sigue creciendo en la comunidad hispanohablante. El futuro del Web3 se construye en español 🚀</p><a href="https://x.com/VaraNetwork_ES/status/1834409833560506582" target="_blank" class="tw-link">Ver post →</a></div>
-        <div class="tw-card"><div class="tw-head"><div class="tw-avatar">V</div><div class="tw-names"><div class="tw-name">Vara Network ES</div><div class="tw-handle">@VaraNetwork_ES</div></div><svg class="tw-logo" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div><p class="tw-text">Var Network en el Gaming Event de Polkadot México 🎮 Web3 gaming tiene un futuro brillante en LATAM. ¡La comunidad lo demuestra!</p><a href="https://x.com/VaraNetwork_ES/status/1834377282221121746" target="_blank" class="tw-link">Ver post →</a></div>
-        <div class="tw-card"><div class="tw-head"><div class="tw-avatar">J</div><div class="tw-names"><div class="tw-name">Juminstock</div><div class="tw-handle">@Juminstock</div></div><svg class="tw-logo" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div><p class="tw-text">El evento de @PolkadotMexico_ fue top 🔝 Aprendí mucho sobre ink! smart contracts y el ecosistema Polkadot. ¡Nos vemos en el próximo!</p><a href="https://x.com/Juminstock/status/1832067666950889504" target="_blank" class="tw-link">Ver post →</a></div>
-        <div class="tw-card"><div class="tw-head"><div class="tw-avatar">B</div><div class="tw-names"><div class="tw-name">Banda Web3</div><div class="tw-handle">@BandaWeb3</div></div><svg class="tw-logo" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div><p class="tw-text">La Banda Web3 estuvo en el evento de @PolkadotMexico_ ¡Qué comunidad tan increíble! México está listo para Polkadot 🇲🇽⛓️</p><a href="https://x.com/BandaWeb3/status/1826363934972281243" target="_blank" class="tw-link">Ver post →</a></div>
-        <!-- duplicado para loop -->
-        <div class="tw-card"><div class="tw-head"><div class="tw-avatar">V</div><div class="tw-names"><div class="tw-name">Vara Network ES</div><div class="tw-handle">@VaraNetwork_ES</div></div><svg class="tw-logo" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div><p class="tw-text">¡Excelente evento con @PolkadotMexico_! Vara Network sigue creciendo en la comunidad hispanohablante. El futuro del Web3 se construye en español 🚀</p><a href="https://x.com/VaraNetwork_ES/status/1834409833560506582" target="_blank" class="tw-link">Ver post →</a></div>
-        <div class="tw-card"><div class="tw-head"><div class="tw-avatar">V</div><div class="tw-names"><div class="tw-name">Vara Network ES</div><div class="tw-handle">@VaraNetwork_ES</div></div><svg class="tw-logo" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div><p class="tw-text">Var Network en el Gaming Event de Polkadot México 🎮 Web3 gaming tiene un futuro brillante en LATAM. ¡La comunidad lo demuestra!</p><a href="https://x.com/VaraNetwork_ES/status/1834377282221121746" target="_blank" class="tw-link">Ver post →</a></div>
-        <div class="tw-card"><div class="tw-head"><div class="tw-avatar">J</div><div class="tw-names"><div class="tw-name">Juminstock</div><div class="tw-handle">@Juminstock</div></div><svg class="tw-logo" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div><p class="tw-text">El evento de @PolkadotMexico_ fue top 🔝 Aprendí mucho sobre ink! smart contracts y el ecosistema Polkadot. ¡Nos vemos en el próximo!</p><a href="https://x.com/Juminstock/status/1832067666950889504" target="_blank" class="tw-link">Ver post →</a></div>
-        <div class="tw-card"><div class="tw-head"><div class="tw-avatar">B</div><div class="tw-names"><div class="tw-name">Banda Web3</div><div class="tw-handle">@BandaWeb3</div></div><svg class="tw-logo" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div><p class="tw-text">La Banda Web3 estuvo en el evento de @PolkadotMexico_ ¡Qué comunidad tan increíble! México está listo para Polkadot 🇲🇽⛓️</p><a href="https://x.com/BandaWeb3/status/1826363934972281243" target="_blank" class="tw-link">Ver post →</a></div>
+      <div class="marquee-inner reverse" id="mq2">
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/VaraNetwork_ES/status/1834409833560506582"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/VaraNetwork_ES/status/1834377282221121746"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/Juminstock/status/1832067666950889504"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/BandaWeb3/status/1826363934972281243"></a></blockquote></div>
+        <div class="tw-frame"><blockquote class="twitter-tweet" data-theme="dark" data-width="320"><a href="https://x.com/PolkadotMexico_/status/1833229529097375919"></a></blockquote></div>
       </div>
     </div>
   </div>
@@ -1577,14 +1551,24 @@ function showPage(id) {
 // logo goes home
 document.querySelector('.nav-logo').addEventListener('click', () => showPage('home'));
 
-// tweets drag scroll
-const ttrack = document.getElementById('tweets-track');
-if (ttrack) {
-  let tdrag=false, tsx, tsl;
-  ttrack.addEventListener('mousedown', e=>{tdrag=true;tsx=e.pageX-ttrack.offsetLeft;tsl=ttrack.scrollLeft;});
-  ttrack.addEventListener('mouseleave', ()=>tdrag=false);
-  ttrack.addEventListener('mouseup', ()=>tdrag=false);
-  ttrack.addEventListener('mousemove', e=>{if(!tdrag)return;e.preventDefault();ttrack.scrollLeft=tsl-(e.pageX-ttrack.offsetLeft-tsx)*1.4;});
+// duplicate marquee rows for infinite loop after Twitter renders
+function dupMarquee(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const clone = el.cloneNode(true);
+  clone.removeAttribute('id');
+  // remove blockquotes from clone to avoid re-render
+  clone.querySelectorAll('blockquote').forEach(bq => {
+    const tw = bq.closest('.tw-frame');
+    if (tw) tw.style.visibility = 'hidden';
+  });
+  el.parentNode.appendChild(clone);
+}
+// wait for twitter widgets to render then duplicate
+if (window.twttr && window.twttr.ready) {
+  window.twttr.ready(() => { dupMarquee('mq1'); dupMarquee('mq2'); });
+} else {
+  setTimeout(() => { dupMarquee('mq1'); dupMarquee('mq2'); }, 3000);
 }
 
 // init
