@@ -6,11 +6,7 @@
 <title>Polkadot México</title>
 <meta name="description" content="La comunidad de Polkadot en México. Eventos, workshops y ecosistema Web3.">
 <style>
-@font-face { font-family:'Space Grotesk'; font-weight:300; font-display:swap; src:url('assets/fonts/SpaceGrotesk-300.woff2') format('woff2'); }
-@font-face { font-family:'Space Grotesk'; font-weight:400; font-display:swap; src:url('assets/fonts/SpaceGrotesk-400.woff2') format('woff2'); }
-@font-face { font-family:'Space Grotesk'; font-weight:500; font-display:swap; src:url('assets/fonts/SpaceGrotesk-500.woff2') format('woff2'); }
-@font-face { font-family:'Space Grotesk'; font-weight:600; font-display:swap; src:url('assets/fonts/SpaceGrotesk-600.woff2') format('woff2'); }
-@font-face { font-family:'Space Grotesk'; font-weight:700; font-display:swap; src:url('assets/fonts/SpaceGrotesk-700.woff2') format('woff2'); }
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
 @font-face { font-family:'Space Mono'; font-weight:400; font-display:swap; src:url('assets/fonts/SpaceMono-400.woff2') format('woff2'); }
 @font-face { font-family:'Space Mono'; font-weight:700; font-display:swap; src:url('assets/fonts/SpaceMono-700.woff2') format('woff2'); }
 </style>
@@ -25,7 +21,7 @@
   --max: 1080px;
 }
 html { scroll-behavior: smooth; }
-body { font-family: 'Space Grotesk', sans-serif; background: var(--bg); color: var(--black); overflow-x: hidden; }
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--black); overflow-x: hidden; }
 
 /* ── LOADER ── */
 #pk-loader {
@@ -62,7 +58,7 @@ nav {
 }
 .nav-logo { text-decoration: none; display: flex; align-items: center; gap: 10px; cursor: pointer; }
 .nav-logo img { height: 22px; filter: invert(1) brightness(0); }
-.nav-logo span { font-size: 15px; font-weight: 700; color: var(--black); letter-spacing: -.1px; }
+.nav-logo span { font-size: 15px; font-weight: 700; color: var(--black); letter-spacing: -.1px; font-family: 'Playfair Display', serif; }
 .nav-links { display: flex; align-items: center; gap: 0; list-style: none; }
 .nav-links a {
   font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700;
@@ -123,8 +119,9 @@ nav {
   margin-bottom: 20px; display: block;
 }
 .hero-h1 {
-  font-size: clamp(52px, 9vw, 108px); font-weight: 700;
-  letter-spacing: -4px; line-height: .9; color: #fff;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(52px, 9vw, 108px); font-weight: 800;
+  letter-spacing: -2px; line-height: .9; color: #fff;
   text-shadow: 0 2px 24px rgba(0,0,0,.7), 0 0 60px rgba(0,0,0,.4);
   margin-bottom: 24px;
 }
@@ -192,8 +189,9 @@ nav {
   display: block; text-align: center; margin-bottom: 18px;
 }
 .sec-title {
-  font-size: clamp(36px, 5.5vw, 68px); font-weight: 700;
-  letter-spacing: -2.5px; line-height: .95; text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 5.5vw, 68px); font-weight: 800;
+  letter-spacing: -1px; line-height: .95; text-align: center;
   margin-bottom: 64px;
 }
 .sec-title em { color: var(--pink); font-style: normal; }
@@ -224,7 +222,7 @@ nav {
 .b-card.tall { grid-column: 2/3; grid-row: 1/2; }
 .b-card.short { grid-column: 2/3; grid-row: 2/3; }
 .b-icon { font-size: 26px; margin-bottom: 20px; display: block; }
-.b-card h3 { font-size: 20px; font-weight: 700; letter-spacing: -.4px; margin-bottom: 12px; }
+.b-card h3 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; letter-spacing: -.2px; margin-bottom: 12px; }
 .b-card.wide h3 { font-size: 26px; }
 .b-card p { font-size: 15px; color: var(--mid); line-height: 1.8; }
 .b-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
@@ -240,8 +238,10 @@ nav {
   background: var(--black); text-align: center;
 }
 .quote-section blockquote {
+  font-family: 'Playfair Display', serif;
   font-size: clamp(24px, 3.8vw, 46px); font-weight: 700;
-  letter-spacing: -1.2px; line-height: 1.15; color: var(--bg);
+  font-style: italic;
+  letter-spacing: -.5px; line-height: 1.2; color: var(--bg);
   max-width: 860px; margin: 0 auto;
 }
 .quote-section blockquote em { color: var(--pink); font-style: normal; }
@@ -256,8 +256,9 @@ nav {
   padding: 108px 48px 0; border-bottom: 1px solid var(--border);
 }
 .reveal-section .reveal-title {
-  font-size: clamp(40px, 7vw, 88px); font-weight: 700;
-  letter-spacing: -3px; line-height: .95; text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(40px, 7vw, 88px); font-weight: 800;
+  letter-spacing: -1px; line-height: .95; text-align: center;
   max-width: var(--max); margin: 0 auto 64px;
 }
 .reveal-img {
@@ -378,7 +379,7 @@ nav {
 }
 .sp-card:hover { border-color: var(--black); background: #edeae2; }
 .sp-chip { font-family: 'Space Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: .15em; color: var(--pink); margin-bottom: 14px; display: block; }
-.sp-card h3 { font-size: 17px; font-weight: 700; color: var(--black); margin-bottom: 10px; letter-spacing: -.3px; line-height: 1.2; }
+.sp-card h3 { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--black); margin-bottom: 10px; letter-spacing: 0; line-height: 1.2; }
 .sp-card p { font-size: 14px; color: var(--mid); line-height: 1.7; }
 
 /* ── BLOG ── */
@@ -392,7 +393,7 @@ nav {
 .blog-card:hover img { filter: grayscale(.2); }
 .blog-body { padding: 28px 24px 32px; }
 .blog-tag { font-family: 'Space Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: var(--pink); margin-bottom: 10px; display: block; }
-.blog-card h3 { font-size: 17px; font-weight: 700; color: var(--black); line-height: 1.3; margin-bottom: 8px; letter-spacing: -.2px; }
+.blog-card h3 { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--black); line-height: 1.3; margin-bottom: 8px; letter-spacing: 0; }
 .blog-card p { font-size: 14px; color: var(--mid); line-height: 1.65; }
 
 /* ── SOCIAL ── */
@@ -417,8 +418,9 @@ nav {
   border-top: 1px solid var(--border);
 }
 .cta-section h2 {
-  font-size: clamp(32px, 5.5vw, 66px); font-weight: 700;
-  letter-spacing: -2.5px; line-height: .95; color: var(--black);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 5.5vw, 66px); font-weight: 800;
+  letter-spacing: -1px; line-height: .95; color: var(--black);
   max-width: 640px; margin: 0 auto 16px;
 }
 .cta-section p {
