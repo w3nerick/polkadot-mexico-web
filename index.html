@@ -22,8 +22,8 @@
   --border: #ccc9c0;
   --max: 1080px;
 }
-html { scroll-behavior: smooth; }
-body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--black); overflow-x: hidden; }
+html { scroll-behavior: smooth; background: #000; }
+body { font-family: 'DM Sans', sans-serif; background: #000; color: var(--black); overflow-x: hidden; }
 h1, h2, h3, h4, h5, h6 { font-family: 'DM Serif Display', serif; }
 
 /* ── LOADER ── */
@@ -280,17 +280,28 @@ nav {
 
 /* ── VIDEOS ── */
 .video-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
   max-width: var(--max); margin: 0 auto;
 }
-.vid-block { overflow: hidden; position: relative; background: #000; border: 1.5px solid var(--border); }
-.vid-block iframe { width: 100%; display: block; aspect-ratio: 16/9; }
+.vid-block {
+  overflow: hidden; display: flex; flex-direction: column;
+  background: #000; border: 1.5px solid var(--border);
+}
+.vid-ratio {
+  position: relative; width: 100%; padding-top: 56.25%; /* 16:9 */
+  flex-shrink: 0; background: #000;
+}
+.vid-ratio iframe {
+  position: absolute; inset: 0; width: 100%; height: 100%; border: none; display: block;
+}
 .vid-cap {
   padding: 16px 20px; background: var(--bg);
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--border); flex: 1;
 }
 .vid-cap h4 { font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 3px; }
 .vid-cap p { font-size: 11px; color: var(--mid); font-family: 'Space Mono', monospace; }
+@media(max-width:768px){ .video-grid { grid-template-columns: 1fr; gap: 16px; } }
 
 /* ── GALLERY (glagstone screenshots style) ── */
 .g-tabs {
@@ -700,17 +711,17 @@ footer {
   function hideLoader(){
     const el=document.getElementById('pk-loader');
     el.classList.add('hide');
-    setTimeout(()=>{ cancelAnimationFrame(rafId); el.style.display='none'; document.body.style.overflowY='auto'; },650);
+    setTimeout(()=>{ cancelAnimationFrame(rafId); el.style.display='none'; document.body.style.background='#f5f2eb'; document.body.style.overflowY='auto'; },650);
   }
 
   // Bloquear scroll mientras dura el loader
   document.body.style.overflow='hidden';
 
-  // Mínimo 3s de animación, máximo 6s sin importar cuánto tarde la página
+  // Mínimo 4s de animación
   let hidden=false;
   function tryHide(){ if(!hidden){ hidden=true; hideLoader(); } }
-  setTimeout(tryHide, 3000);
-  window.addEventListener('load', ()=>{ setTimeout(tryHide, 500); });
+  setTimeout(tryHide, 4000);
+  window.addEventListener('load', ()=>{ setTimeout(tryHide, 4000); });
 
   SRC.onload = ()=>{ rafId=requestAnimationFrame(draw); };
   if(SRC.complete){ rafId=requestAnimationFrame(draw); }
@@ -839,15 +850,15 @@ footer {
     </div>
     <div class="video-grid rv">
       <div class="vid-block">
-        <iframe src="https://drive.google.com/file/d/1jaudPyNiP4KuIv7VwXxT_6ApN_kkZ-xt/preview" allow="autoplay" allowfullscreen style="width:100%;aspect-ratio:16/9;border:none;display:block;"></iframe>
+        <div class="vid-ratio"><iframe src="https://www.youtube.com/embed/ZqEkGA6GtQI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
         <div class="vid-cap"><h4>Satellite Event 2023</h4><p>Ciudad de México - Julio 2023</p></div>
       </div>
       <div class="vid-block">
-        <iframe src="https://drive.google.com/file/d/1zHi5tjfwr8-8lQAuaiuByVbfVwpkq__A/preview" allow="autoplay" allowfullscreen style="width:100%;aspect-ratio:16/9;border:none;display:block;"></iframe>
+        <div class="vid-ratio"><iframe src="https://www.youtube.com/embed/j4cNhTx8zSI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
         <div class="vid-cap"><h4>Polkadot México</h4><p>Comunidad y ecosistema</p></div>
       </div>
       <div class="vid-block">
-        <iframe src="https://drive.google.com/file/d/1NAogk7DlChTBw-Y8ol17O51QQbci_Am6/preview" allow="autoplay" allowfullscreen style="width:100%;aspect-ratio:16/9;border:none;display:block;"></iframe>
+        <div class="vid-ratio"><iframe src="https://www.youtube.com/embed/AOHoJCCi2rQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
         <div class="vid-cap"><h4>Polkadot México - Completo</h4><p>Resumen completo de actividades</p></div>
       </div>
     </div>
@@ -1139,7 +1150,7 @@ footer {
       <h2 class="sec-title">Blog</h2>
     </div>
     <div class="blog-grid rv">
-      <a href="https://forum.polkadot.network" target="_blank" class="blog-card">
+      <a href="https://forum.polkadot.network/t/polkadot-talent-land-guadalajara-2025-experience/12794" target="_blank" class="blog-card">
         <img src="assets/Polkadot Mexico Banner.png" alt="Forum">
         <div class="blog-body"><span class="blog-tag">Forum</span><h3>Mexican Collective en el Polkadot Forum</h3><p>Reporte de actividades del colectivo mexicano en el foro oficial de Polkadot.</p></div>
       </a>
