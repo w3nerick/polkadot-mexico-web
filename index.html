@@ -1720,7 +1720,8 @@ function showPage(id) {
 // logo goes home
 document.querySelector('.nav-logo').addEventListener('click', () => showPage('home'));
 
-// init
+// init — always start at home on load/refresh
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 showPage('home');
 </script>
 </body>
