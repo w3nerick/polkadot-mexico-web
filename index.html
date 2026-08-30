@@ -395,20 +395,30 @@ nav {
 .ev-arrow { flex-shrink: 0; margin-right: 28px; font-size: 18px; color: var(--mid); }
 
 /* ── SPACES ── */
-.spaces-track {
-  display: flex; overflow-x: auto; scrollbar-width: none; cursor: grab;
-  max-width: var(--max); margin: 0 auto; gap: 3px;
+.spaces-marquee-wrap {
+  overflow: hidden; max-width: 100%;
+  padding: 12px 0 16px;
+  -webkit-mask: linear-gradient(90deg, transparent 0%, #000 2%, #000 98%, transparent 100%);
+  mask: linear-gradient(90deg, transparent 0%, #000 2%, #000 98%, transparent 100%);
 }
-.spaces-track:active { cursor: grabbing; }
-.spaces-track::-webkit-scrollbar { display: none; }
+.spaces-marquee {
+  display: flex; gap: 20px; width: max-content; align-items: stretch;
+  animation: marquee-scroll 40s linear infinite;
+}
+.spaces-marquee-wrap:hover .spaces-marquee { animation-play-state: paused; }
 .sp-card {
-  min-width: 300px; flex-shrink: 0; padding: 44px 36px;
-  border: 1.5px solid var(--border); transition: border-color .2s, background .2s;
+  display: flex; flex-direction: column; text-decoration: none; flex-shrink: 0; width: 380px;
+  border: 1.5px solid var(--border); border-radius: 16px;
+  overflow: hidden; transition: border-color .2s, box-shadow .2s;
+  background: var(--cream);
 }
-.sp-card:hover { border-color: var(--black); background: #edeae2; }
-.sp-chip { font-family: 'Space Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: .15em; color: var(--pink); margin-bottom: 14px; display: block; }
-.sp-card h3 { font-family: 'DM Serif Display', serif; font-size: 17px; font-weight: 700; color: var(--black); margin-bottom: 10px; letter-spacing: 0; line-height: 1.2; }
-.sp-card p { font-size: 14px; color: var(--mid); line-height: 1.7; }
+.sp-card:hover { border-color: var(--black); box-shadow: 0 4px 20px rgba(0,0,0,0.10); }
+.sp-card-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; flex-shrink: 0; }
+.sp-card-body { padding: 20px 24px 26px; flex: 1; display: flex; flex-direction: column; min-height: 160px; }
+.sp-chip { font-family: 'Space Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: .15em; color: var(--pink); margin-bottom: 10px; display: block; }
+.sp-card h3 { font-family: 'DM Serif Display', serif; font-size: 17px; font-weight: 700; color: var(--black); margin-bottom: 6px; letter-spacing: 0; line-height: 1.25; flex: 1; }
+.sp-date { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--mid); letter-spacing: .08em; margin-bottom: 10px; display: block; }
+.sp-card p { font-size: 13px; color: var(--mid); line-height: 1.65; margin: 0; }
 
 
 /* ── BLOG ── */
@@ -640,8 +650,8 @@ footer {
   .ev-arrow { margin-right: 16px; }
 
   /* SPACES */
-  .spaces-track { padding: 0 20px; gap: 8px; }
-  .sp-card { min-width: 260px; padding: 32px 24px; }
+  .sp-card { width: 300px; }
+  .sp-card-body { padding: 16px 18px 20px; min-height: 140px; }
 
   /* BLOG */
   .blog-grid { grid-template-columns: 1fr; gap: 12px; }
@@ -1195,14 +1205,155 @@ footer {
       <span class="eyebrow">Twitter / X</span>
       <h2 class="sec-title">Spaces</h2>
     </div>
-    <div class="spaces-track rv" id="spaces-track">
-      <div class="sp-card"><span class="sp-chip">// Twitter Space</span><h3>Introducción a Polkadot 2.0</h3><p>Coretime, Agile Coretime y el nuevo modelo de parachains con expertos del ecosistema.</p></div>
-      <div class="sp-card"><span class="sp-chip">// Twitter Space</span><h3>OpenGov: Gobernanza on-chain</h3><p>Cómo participar en referendums, propuestas y voting en la red de Polkadot.</p></div>
-      <div class="sp-card"><span class="sp-chip">// Twitter Space</span><h3>Smart Contracts con PolkaVM</h3><p>Taller técnico sobre Revive, PolkaVM y contratos inteligentes en Polkadot.</p></div>
-      <div class="sp-card"><span class="sp-chip">// Twitter Space</span><h3>DeFi en Polkadot</h3><p>Hydration, Acala, Bifrost y el estado del DeFi nativo en el ecosistema.</p></div>
-      <div class="sp-card"><span class="sp-chip">// Twitter Space</span><h3>JAM y el futuro del protocolo</h3><p>Join-Accumulate Machine, la evolución de Polkadot por Gavin Wood.</p></div>
-    </div>
   </div>
+  <div class="spaces-marquee-wrap rv">
+      <div class="spaces-marquee" id="spaces-row1">
+        <a class="sp-card" href="https://x.com/PolkadotEspanol/status/1600987305699078148" target="_blank" rel="noopener">
+          <img class="sp-card-img" src="assets/spaces/space-polkadot-mexico-dic2022.png" alt="¡Polkadot en México!">
+          <div class="sp-card-body">
+            <span class="sp-chip">// Twitter Space</span>
+            <h3>¡Polkadot en México!</h3>
+            <span class="sp-date">Viernes 9 de diciembre, 2022</span>
+            <p>Meetup y hackathon junto la comunidad y Gear. Primer space oficial de Polkadot México con @PolkadotEspanol.</p>
+          </div>
+        </a>
+        <a class="sp-card" href="https://x.com/PolkadotEspanol/status/1554115736834113538" target="_blank" rel="noopener">
+          <img class="sp-card-img" src="assets/spaces/space-gear-technologies-ago2022.png" alt="Gear Technologies">
+          <div class="sp-card-body">
+            <span class="sp-chip">// Twitter Space</span>
+            <h3>Gear Technologies: Smart Contracts y dApps en Polkadot</h3>
+            <span class="sp-date">Jueves 4 de agosto, 2022</span>
+            <p>Pavel Salas (Gear), Erick Alonso y Javier Eli Reyes explican smart contracts y dApps en el ecosistema Polkadot.</p>
+          </div>
+        </a>
+        <a class="sp-card" href="https://x.com/PolkadotMexico_/status/1582059816217808897" target="_blank" rel="noopener">
+          <img class="sp-card-img" src="assets/spaces/space-bitcountry-oct2022.png" alt="Bit.Country Space">
+          <div class="sp-card-body">
+            <span class="sp-chip">// Twitter Space</span>
+            <h3>Bit.Country: Metaverso en Polkadot</h3>
+            <span class="sp-date">Miércoles 19 de octubre, 2022</span>
+            <p>@Chriscrypto (Bit.Country), @nachito.eth, @w3nerick, @robinhodl69 y @javiblakecr — Polkadot Ambassadors.</p>
+          </div>
+        </a>
+        <a class="sp-card" href="https://x.com/tododecripto/status/1715400960770486736" target="_blank" rel="noopener">
+          <img class="sp-card-img" src="assets/spaces/space-desbloqueo-dot-oct2023.png" alt="Desbloqueo en Polkadot">
+          <div class="sp-card-body">
+            <span class="sp-chip">// Twitter Space</span>
+            <h3>Hablemos del Desbloqueo en Polkadot</h3>
+            <span class="sp-date">Lunes 23 de octubre, 2023 — 8:00 p.m. CDMx</span>
+            <p>Con @matsunchi, @w3nerick, @janconao, @oh3hodlfather y @AlcocerYago. Hosted by @tododecripto.</p>
+          </div>
+        </a>
+        <a class="sp-card" href="https://x.com/PolkadotMexico_/status/1671887482097659910" target="_blank" rel="noopener">
+          <img class="sp-card-img" src="assets/spaces/space-tanssi-jun2023.png" alt="Tanssi Network Space">
+          <div class="sp-card-body">
+            <span class="sp-chip">// Twitter Space</span>
+            <h3>Tanssi Network en Polkadot</h3>
+            <span class="sp-date">Jueves 22 de junio, 2023 — 9:00 a.m.</span>
+            <p>Space con el equipo de Tanssi Network, la infraestructura de despliegue de appchains en Polkadot.</p>
+          </div>
+        </a>
+        <a class="sp-card" href="https://x.com/PolkadotMexico_/status/1790427347243467103" target="_blank" rel="noopener">
+          <img class="sp-card-img" src="assets/spaces/space-neurolanche-may2024.png" alt="Neurolanche Space">
+          <div class="sp-card-body">
+            <span class="sp-chip">// Twitter Space</span>
+            <h3>Neurolanche: IA y GameFi en Polkadot</h3>
+            <span class="sp-date">Jueves 16 de mayo, 2024 — 18:00 CET</span>
+            <p>Inteligencia artificial y GameFi en Polkadot con @CoinRef_co. Sorteo de $50 en $NEROX.</p>
+          </div>
+        </a>
+        <a class="sp-card" href="https://x.com/PolkadotMexico_/status/1666858733304000517" target="_blank" rel="noopener">
+          <img class="sp-card-img" src="assets/spaces/space-workshop-ibero-jun2023.png" alt="Workshop Ibero Space">
+          <div class="sp-card-body">
+            <span class="sp-chip">// Twitter Space</span>
+            <h3>Experiencia de los Workshops de Substrate e ink! en la Ibero</h3>
+            <span class="sp-date">Jueves 8 de junio, 2023 — 20:00 CDMx</span>
+            <p>Recap del workshop de Substrate e ink! en la Universidad Iberoamericana con Polkadot México y Polkadot en Español.</p>
+          </div>
+        </a>
+        <a class="sp-card" href="https://x.com/PolkadotMexico_/status/1631003647638380544" target="_blank" rel="noopener">
+          <img class="sp-card-img" src="assets/spaces/space-polimec-mar2023.png" alt="Polimec Space">
+          <div class="sp-card-body">
+            <span class="sp-chip">// Twitter Space</span>
+            <h3>Polimec: Financiación Descentralizada en Polkadot</h3>
+            <span class="sp-date">Jueves 2 de marzo, 2023 — 16:00 UTC</span>
+            <p>Ken Bernheim (Legal & Business Dev, Polimec Protocol) explica la plataforma de financiación descentralizada para el ecosistema Web3.</p>
+          </div>
+        </a>
+        <a class="sp-card" href="https://x.com/PolkadotMexico_/status/1668687307552231425" target="_blank" rel="noopener">
+          <img class="sp-card-img" src="assets/spaces/space-hub-ibero-jun2023.png" alt="Polkadot Hub México 2023">
+          <div class="sp-card-body">
+            <span class="sp-chip">// Twitter Space</span>
+            <h3>Polkadot Hub México 2023</h3>
+            <span class="sp-date">Workshops 7–8 de junio · Evento 9 de junio, 2023</span>
+            <p>Workshops de Substrate e ink! + evento presencial en la Ibero CDMx con Rust, ink!, Todo de Cripto y CoinTelegraph.</p>
+          </div>
+        </a>
+        <a class="sp-card" href="https://x.com/PolkadotMexico_/status/1787937499886842095" target="_blank" rel="noopener">
+          <img class="sp-card-img" src="assets/spaces/space-centrifuge-may2024.png" alt="Centrifuge Space">
+          <div class="sp-card-body">
+            <span class="sp-chip">// Twitter Space</span>
+            <h3>Centrifuge: Activos del Mundo Real en Web3</h3>
+            <span class="sp-date">Jueves 9 de mayo, 2024 — 15:00 CDMx</span>
+            <p>Con @Enriqueksm_ y Anemoy. Real World Assets (RWA) tokenizados en Polkadot con Centrifuge.</p>
+          </div>
+        </a>
+        <a class="sp-card" href="https://x.com/PolkadotMexico_/status/1696671465754492939" target="_blank" rel="noopener">
+          <img class="sp-card-img" src="assets/spaces/space-nacion-crypto-ago2023.png" alt="Nación Crypto Space">
+          <div class="sp-card-body">
+            <span class="sp-chip">// Twitter Space</span>
+            <h3>Hablemos sobre Polkadot</h3>
+            <span class="sp-date">Jueves 31 de agosto, 2023 — 4:00 PM MEX</span>
+            <p>Con @JaviBlakeCR, @robinhodl69, @Fechuky_ (Moonwell) y @oak_network. Hosted by Nación Crypto Parceros.</p>
+          </div>
+        </a>
+        <a class="sp-card" href="https://x.com/tododecripto/status/1910460532265562348" target="_blank" rel="noopener">
+          <img class="sp-card-img" src="assets/spaces/space-talent-land-abr2025.png" alt="Polkadot en Talent Land 2025">
+          <div class="sp-card-body">
+            <span class="sp-chip">// Twitter Space</span>
+            <h3>Polkadot en Talent Land, ¿Qué nos espera?</h3>
+            <span class="sp-date">Jueves 10 de abril, 2025 — 17:00 GMT-6</span>
+            <p>Preview del stand de Polkadot México en Talent Land 2025. Hosted by @tododecripto.</p>
+          </div>
+        </a>
+        <a class="sp-card" href="https://x.com/PolkadotMexico_/status/1759930033559282050" target="_blank" rel="noopener">
+          <img class="sp-card-img" src="assets/spaces/space-vara-network-feb2024.png" alt="Vara Network Space">
+          <div class="sp-card-body">
+            <span class="sp-chip">// Twitter Space</span>
+            <h3>Proyectos Construyéndose en Vara Network</h3>
+            <span class="sp-date">Viernes 23 de febrero, 2024 — 7:00 p.m. México</span>
+            <p>Vara Network powered by Gear — proyectos y builders del ecosistema en construcción.</p>
+          </div>
+        </a>
+        <a class="sp-card" href="https://x.com/PolkadotMexico_/status/1765213513478467618" target="_blank" rel="noopener">
+          <img class="sp-card-img" src="assets/spaces/space-hydradx-mar2024.png" alt="Hydra DX Space">
+          <div class="sp-card-body">
+            <span class="sp-chip">// Twitter Space</span>
+            <h3>Conociendo el DEX de Polkadot: Hydra DX</h3>
+            <span class="sp-date">Jueves 7 de marzo, 2024 — 1:00 p.m. México</span>
+            <p>Cross-chain liquidity protocol built on Substrate. Con @JOseRafael12.</p>
+          </div>
+        </a>
+        <a class="sp-card" href="https://x.com/PolkadotMexico_/status/1933691730798522757" target="_blank" rel="noopener">
+          <img class="sp-card-img" src="assets/spaces/space-fifa-rivals-jun2025.png" alt="FIFA Rivals Space">
+          <div class="sp-card-body">
+            <span class="sp-chip">// Twitter Space</span>
+            <h3>Lanzamiento de FIFA Rivals</h3>
+            <span class="sp-date">Sábado 14 de junio, 2025 — 9:00 a.m. GMT-6</span>
+            <p>Space de lanzamiento de FIFA Rivals con @CoinRef_co. Gaming Web3 en el ecosistema Polkadot México.</p>
+          </div>
+        </a>
+        <a class="sp-card" href="https://x.com/PolkadotMexico_/status/1820825329625333939" target="_blank" rel="noopener">
+          <img class="sp-card-img" src="assets/spaces/space-itemz-ago2024.png" alt="ITEMZ Gaming Space">
+          <div class="sp-card-body">
+            <span class="sp-chip">// Twitter Space</span>
+            <h3>ITEMZ: Una comunidad de Gaming en Web3</h3>
+            <span class="sp-date">Miércoles 7 de agosto, 2024 — 18:00 CET</span>
+            <p>Space con @ITEMZ_LATAM sobre gaming y comunidad Web3 en el ecosistema Polkadot.</p>
+          </div>
+        </a>
+      </div>
+    </div>
 </section>
 
 <!-- TWEETS -->
@@ -1644,12 +1795,21 @@ function closeLBBg(e){if(e.target===document.getElementById('lb'))closeLB();}
 function navLB(d){const imgs=gData[currentG];currentIdx=(currentIdx+d+imgs.length)%imgs.length;document.getElementById('lb-img').src=imgs[currentIdx];}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB();if(e.key==='ArrowRight')navLB(1);if(e.key==='ArrowLeft')navLB(-1);});
 
-const track=document.getElementById('spaces-track');
-let drag=false,sx,sl;
-track.addEventListener('mousedown',e=>{drag=true;sx=e.pageX-track.offsetLeft;sl=track.scrollLeft;});
-track.addEventListener('mouseleave',()=>drag=false);
-track.addEventListener('mouseup',()=>drag=false);
-track.addEventListener('mousemove',e=>{if(!drag)return;e.preventDefault();track.scrollLeft=sl-(e.pageX-track.offsetLeft-sx)*1.4;});
+// Spaces marquee — same engine as tweets
+var SPACES_PX_PER_SECOND = 5;
+['spaces-row1'].forEach(function(id){
+  var row = document.getElementById(id);
+  if (!row) return;
+  var origCards = Array.from(row.children);
+  origCards.forEach(function(c){
+    var cl = c.cloneNode(true);
+    cl.setAttribute('aria-hidden','true');
+    row.appendChild(cl);
+  });
+  var totalWidth = origCards.reduce(function(acc, c){ return acc + c.offsetWidth + 16; }, 0);
+  var duration = totalWidth / SPACES_PX_PER_SECOND;
+  row.style.animationDuration = duration + 's';
+});
 
 // Reveal on scroll
 const obs=new IntersectionObserver(entries=>{
