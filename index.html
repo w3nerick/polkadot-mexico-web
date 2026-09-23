@@ -1103,6 +1103,7 @@ footer {
         <button class="g-tab" onclick="switchG('tl25d2',this)">Talent Land 2025 — Día 2</button>
         <button class="g-tab" onclick="switchG('tl25d3',this)">Talent Land 2025 — Día 3</button>
         <button class="g-tab" onclick="switchG('tl25d4',this)">Talent Land 2025 — Día 4</button>
+        <button class="g-tab" onclick="switchG('uvp',this)">Universidad del Valle de Puebla: Workshop</button>
       </div>
     </div>
     <div class="photo-grid on" id="gallery-satellite">
@@ -1288,6 +1289,30 @@ footer {
       <div class="photo-item" onclick="openLB('tl25d4',17)"><img src="assets/images/talent-land-2025/Talent Land Day 4/photo_2025-04-29 19.05.41.jpeg" loading="lazy" alt=""></div>
       <div class="photo-item" onclick="openLB('tl25d4',18)"><img src="assets/images/talent-land-2025/Talent Land Day 4/photo_2025-04-29 19.06.12.jpeg" loading="lazy" alt=""></div>
       <div class="photo-item" onclick="openLB('tl25d4',19)"><img src="assets/images/talent-land-2025/Talent Land Day 4/photo_2025-04-29 19.08.59.jpeg" loading="lazy" alt=""></div>
+    </div>
+
+    <!-- UNIVERSIDAD DEL VALLE DE PUEBLA — WORKSHOP -->
+    <div class="photo-grid" id="gallery-uvp">
+      <div class="photo-item" onclick="openLB('uvp',0)"><img src="assets/images/uvp-workshop-2025/uvp-01.jpg" loading="lazy" alt=""></div>
+      <div class="photo-item" onclick="openLB('uvp',1)"><img src="assets/images/uvp-workshop-2025/uvp-02.jpg" loading="lazy" alt=""></div>
+      <div class="photo-item" onclick="openLB('uvp',2)"><img src="assets/images/uvp-workshop-2025/uvp-03.jpg" loading="lazy" alt=""></div>
+      <div class="photo-item" onclick="openLB('uvp',3)"><img src="assets/images/uvp-workshop-2025/uvp-04.jpg" loading="lazy" alt=""></div>
+      <div class="photo-item" onclick="openLB('uvp',4)"><img src="assets/images/uvp-workshop-2025/uvp-05.jpg" loading="lazy" alt=""></div>
+      <div class="photo-item" onclick="openLB('uvp',5)"><img src="assets/images/uvp-workshop-2025/uvp-06.jpg" loading="lazy" alt=""></div>
+      <div class="photo-item" onclick="openLB('uvp',6)"><img src="assets/images/uvp-workshop-2025/uvp-07.jpg" loading="lazy" alt=""></div>
+      <div class="photo-item" onclick="openLB('uvp',7)"><img src="assets/images/uvp-workshop-2025/uvp-08.jpg" loading="lazy" alt=""></div>
+      <div class="photo-item" onclick="openLB('uvp',8)"><img src="assets/images/uvp-workshop-2025/uvp-09.jpg" loading="lazy" alt=""></div>
+      <div class="photo-item" onclick="openLB('uvp',9)"><img src="assets/images/uvp-workshop-2025/uvp-10.jpg" loading="lazy" alt=""></div>
+      <div class="photo-item" onclick="openLB('uvp',10)"><img src="assets/images/uvp-workshop-2025/uvp-11.jpg" loading="lazy" alt=""></div>
+      <div class="photo-item" onclick="openLB('uvp',11)"><img src="assets/images/uvp-workshop-2025/uvp-12.jpg" loading="lazy" alt=""></div>
+      <div class="photo-item" onclick="openLB('uvp',12)"><img src="assets/images/uvp-workshop-2025/uvp-13.jpg" loading="lazy" alt=""></div>
+      <div class="photo-item" onclick="openLB('uvp',13)"><img src="assets/images/uvp-workshop-2025/uvp-14.jpg" loading="lazy" alt=""></div>
+      <div class="photo-item" onclick="openLB('uvp',14)"><img src="assets/images/uvp-workshop-2025/uvp-15.jpg" loading="lazy" alt=""></div>
+      <div class="photo-item" onclick="openLB('uvp',15)"><img src="assets/images/uvp-workshop-2025/uvp-16.jpg" loading="lazy" alt=""></div>
+      <div class="photo-item" onclick="openLB('uvp',16)"><img src="assets/images/uvp-workshop-2025/uvp-17.jpg" loading="lazy" alt=""></div>
+      <div class="photo-item" onclick="openLB('uvp',17)"><img src="assets/images/uvp-workshop-2025/uvp-18.jpg" loading="lazy" alt=""></div>
+      <div class="photo-item" onclick="openLB('uvp',18)"><img src="assets/images/uvp-workshop-2025/uvp-19.jpg" loading="lazy" alt=""></div>
+      <div class="photo-item" onclick="openLB('uvp',19)"><img src="assets/images/uvp-workshop-2025/uvp-20.jpg" loading="lazy" alt=""></div>
     </div>
   </div>
 </section>
@@ -1761,6 +1786,7 @@ let currentG = 'satellite';
 function switchG(id, btn) {
   document.querySelectorAll('.g-tab').forEach(t => t.classList.remove('on'));
   btn.classList.add('on');
+  btn.scrollIntoView({ inline: 'nearest', block: 'nearest', behavior: 'smooth' });
   document.querySelectorAll('.photo-grid').forEach(g => g.classList.remove('on'));
   document.getElementById('gallery-' + id).classList.add('on');
   currentG = id;
@@ -1933,6 +1959,28 @@ const gData = {
     'assets/images/talent-land-2025/Talent Land Day 4/photo_2025-04-29 19.05.41.jpeg',
     'assets/images/talent-land-2025/Talent Land Day 4/photo_2025-04-29 19.06.12.jpeg',
     'assets/images/talent-land-2025/Talent Land Day 4/photo_2025-04-29 19.08.59.jpeg'
+  ],
+  uvp: [
+    'assets/images/uvp-workshop-2025/uvp-01.jpg',
+    'assets/images/uvp-workshop-2025/uvp-02.jpg',
+    'assets/images/uvp-workshop-2025/uvp-03.jpg',
+    'assets/images/uvp-workshop-2025/uvp-04.jpg',
+    'assets/images/uvp-workshop-2025/uvp-05.jpg',
+    'assets/images/uvp-workshop-2025/uvp-06.jpg',
+    'assets/images/uvp-workshop-2025/uvp-07.jpg',
+    'assets/images/uvp-workshop-2025/uvp-08.jpg',
+    'assets/images/uvp-workshop-2025/uvp-09.jpg',
+    'assets/images/uvp-workshop-2025/uvp-10.jpg',
+    'assets/images/uvp-workshop-2025/uvp-11.jpg',
+    'assets/images/uvp-workshop-2025/uvp-12.jpg',
+    'assets/images/uvp-workshop-2025/uvp-13.jpg',
+    'assets/images/uvp-workshop-2025/uvp-14.jpg',
+    'assets/images/uvp-workshop-2025/uvp-15.jpg',
+    'assets/images/uvp-workshop-2025/uvp-16.jpg',
+    'assets/images/uvp-workshop-2025/uvp-17.jpg',
+    'assets/images/uvp-workshop-2025/uvp-18.jpg',
+    'assets/images/uvp-workshop-2025/uvp-19.jpg',
+    'assets/images/uvp-workshop-2025/uvp-20.jpg'
   ]
 };
 function openLB(g,i){
@@ -1996,7 +2044,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB();if(e.key==
 (function(){
   const gallerySection = document.getElementById('page-galeria');
   if (!gallerySection) return;
-  const tabOrder = ['satellite','talent','hacker','gaming','tl25d1','tl25d2','tl25d3','tl25d4'];
+  const tabOrder = ['satellite','talent','hacker','gaming','tl25d1','tl25d2','tl25d3','tl25d4','uvp'];
   let gSX=0, gSY=0, gMoved=false;
 
   gallerySection.addEventListener('touchstart', e=>{
