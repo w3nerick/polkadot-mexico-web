@@ -1049,6 +1049,7 @@ footer {
   <h2 class="reveal-title">La comunidad<br>en acción</h2>
   <div class="reveal-img" id="community-slideshow">
     <img class="slide active" src="assets/images/talent-land-2025/Talent Land Day 3/photo_2025-04-29 13.49.34.jpeg" alt="Talent Land 2025">
+    <img class="slide" src="assets/images/uvp-workshop-2025/uvp-13.jpg" alt="Workshop Universidad del Valle de Puebla">
     <img class="slide" src="assets/images/satellite-2023/DSC00266.JPG" alt="Satellite Event 2023">
     <img class="slide" src="assets/images/talent-land-2023/Talent Land 2023/IMG_6953.jpg" alt="Talent Land 2023">
     <img class="slide" src="assets/images/hacker-garage-2024/PHOTO-2024-04-06-23-51-49(1).jpg" alt="Hacker Garage 2024">
@@ -1341,6 +1342,11 @@ footer {
         <div class="ev-date"><div class="ev-mo">Prox.</div><div class="ev-dy">TBD</div></div>
         <div class="ev-info"><span class="ev-title">Siguiente evento - En camino</span><span class="ev-where">Síguenos en redes para no perderte nada</span></div>
         <span class="ev-badge up">Próximo</span><span class="ev-arrow">&#8594;</span>
+      </a>
+      <a href="#" class="ev-row">
+        <div class="ev-date"><div class="ev-mo">Jul</div><div class="ev-dy">25</div></div>
+        <div class="ev-info"><span class="ev-title">Workshop El Futuro es Web3 - Universidad del Valle de Puebla</span><span class="ev-where">Puebla, Puebla - Julio 2025</span></div>
+        <span class="ev-badge past">Pasado</span><span class="ev-arrow">&#8594;</span>
       </a>
       <a href="https://lu.ma/polkadotmexico" target="_blank" class="ev-row">
         <div class="ev-date"><div class="ev-mo">Abr</div><div class="ev-dy">18</div></div>
@@ -1786,7 +1792,12 @@ let currentG = 'satellite';
 function switchG(id, btn) {
   document.querySelectorAll('.g-tab').forEach(t => t.classList.remove('on'));
   btn.classList.add('on');
-  btn.scrollIntoView({ inline: 'nearest', block: 'nearest', behavior: 'smooth' });
+  // centra la pestaña activa en la tira (mobile: scroll horizontal)
+  const strip = btn.parentElement;
+  if (strip.scrollWidth > strip.clientWidth) {
+    const left = btn.getBoundingClientRect().left - strip.getBoundingClientRect().left + strip.scrollLeft;
+    strip.scrollTo({ left: left - (strip.clientWidth - btn.offsetWidth) / 2, behavior: 'smooth' });
+  }
   document.querySelectorAll('.photo-grid').forEach(g => g.classList.remove('on'));
   document.getElementById('gallery-' + id).classList.add('on');
   currentG = id;
