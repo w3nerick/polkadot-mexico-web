@@ -1,7 +1,13 @@
+# macOS
 .DS_Store
-assets/videos/Polkadot Mexico.mp4
-assets/videos/polkadotmex3.mp4
-assets/videos/satellite-event-2023.mp4
-assets/fonts/*.ttf
+
+# Vercel
 .vercel
 .env*.local
+
+# Material crudo: vive en la Mac (y en Drive), nunca en el repo
+assets/videos/
+assets/fonts/*.ttf
+*.MOV
+*.mov
+*.HEIC

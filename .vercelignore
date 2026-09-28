@@ -1,4 +1,15 @@
-assets/videos/
+# Solo se publica el sitio. Docs, scripts y kit de marca se quedan en el repo.
+/*
+!index.html
+!css
+!js
+!assets
+!favicon.ico
+!robots.txt
+!sitemap.xml
+
+# Material crudo local
+assets/videos
 assets/images/**/*.MOV
 assets/images/**/*.mov
 assets/images/**/*.HEIC
