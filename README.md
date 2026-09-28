@@ -105,6 +105,7 @@ polkadot-mexico-web/
 ├── favicon.ico
 ├── robots.txt
 ├── sitemap.xml
+├── vercel.json             # Redirige URLs viejas (og-image, favicon, logo)
 └── .vercelignore           # Lista blanca: qué se publica y qué no
 ```
 

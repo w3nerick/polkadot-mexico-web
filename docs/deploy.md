@@ -51,8 +51,16 @@ solo lo que forma el sitio.
 | `assets/` (menos `assets/videos/` y crudos `.MOV`, `.HEIC`, `.mp4` en `images/`) | `brand-kit/` |
 | `favicon.ico`, `robots.txt`, `sitemap.xml` | `README.md`, `LICENSE`, archivos de configuración |
 
+`vercel.json` también sube, pero Vercel lo lee como configuración y no lo sirve.
 Si agregas un archivo nuevo en la raíz que el sitio necesite, súmalo a la lista
 blanca con una línea `!archivo`.
+
+### Redirecciones
+
+`vercel.json` redirige de forma permanente (308) las rutas viejas que pueden estar guardadas fuera del
+sitio: la imagen de Open Graph que cachean X, Facebook o Telegram, el favicon y el
+logo del JSON-LD que usa Google. Si vuelves a mover uno de esos archivos, agrega su
+ruta vieja ahí; `scripts/check.mjs` verifica que cada destino exista.
 
 ## Después de publicar
 

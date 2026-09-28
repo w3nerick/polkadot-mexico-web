@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 // Revisa el sitio antes de publicarlo. Sin dependencias: node scripts/check.mjs
 //
-//   1. Toda ruta local (HTML, CSS, JS, URLs absolutas del sitio) existe, con
-//      las mayúsculas exactas: la Mac no las distingue, Vercel sí.
+//   1. Toda ruta local existe con las mayúsculas exactas (la Mac no las
+//      distingue, Vercel sí): HTML, CSS, JS, URLs absolutas del sitio y
+//      destinos de las redirecciones de vercel.json.
 //   2. Todo archivo versionado en assets/ se usa en alguna parte.
 //   3. La galería del HTML coincide foto por foto con gData y con las pestañas,
 //      y las dos filas del marquee llevan los mismos tweets.
@@ -52,6 +53,7 @@ for (const [, url] of html.matchAll(/\b(?:src|href|poster)="([^"]*)"/g)) if (url
 for (const f of ['index.html', 'sitemap.xml', 'robots.txt']) {
   for (const [, path] of read(f).matchAll(new RegExp(`${canonical.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/([^"'<\\s]*)`, 'g'))) addRef(path || 'index.html', f);
 }
+for (const { destination } of JSON.parse(read('vercel.json')).redirects ?? []) addRef(destination.replace(/^\//, ''), 'vercel.json');
 for (const f of cssFiles) {
   for (const [, url] of read(f).matchAll(/url\(\s*['"]?([^'")]+)['"]?\s*\)/g)) if (!isExternal(url)) addRef(posix.normalize(posix.join('css', url)), f);
 }
