@@ -4,7 +4,8 @@
 //   1. Toda ruta local (HTML, CSS, JS, URLs absolutas del sitio) existe, con
 //      las mayúsculas exactas: la Mac no las distingue, Vercel sí.
 //   2. Todo archivo versionado en assets/ se usa en alguna parte.
-//   3. La galería del HTML coincide foto por foto con gData y con las pestañas.
+//   3. La galería del HTML coincide foto por foto con gData y con las pestañas,
+//      y las dos filas del marquee llevan los mismos tweets.
 //   4. canonical, og:url, JSON-LD, sitemap y robots apuntan al mismo dominio.
 //   5. Las fotos, tweets y spaces respetan su peso y tamaño máximos.
 import { execFileSync } from 'node:child_process';
@@ -90,6 +91,15 @@ for (const album of albums) {
 for (const [, album] of html.matchAll(/goAlbum\('(\w+)'\)/g)) if (!gData[album]) galleryProblems.push(`goAlbum('${album}') apunta a un álbum que no existe`);
 const photos = Object.values(gData).flat().length;
 check(`Galería: ${albums.length} álbumes, ${photos} fotos, HTML = gData = pestañas`, galleryProblems);
+
+// Las dos filas del marquee llevan los mismos tweets (cada una se baraja sola)
+const tweetRow = (id) => new Set([...(html.match(new RegExp(`id="${id}">([\\s\\S]*?)\\n      </div>`))?.[1] ?? '').matchAll(/src="(assets\/tweets\/[^"]+)"/g)].map((m) => m[1]));
+const [row1, row2] = [tweetRow('tweets-row1'), tweetRow('tweets-row2')];
+check(`Tweets: ${row1.size} en cada fila del marquee`, [
+  ...[...row1].filter((t) => !row2.has(t)).map((t) => `${t} está en tweets-row1 pero no en tweets-row2`),
+  ...[...row2].filter((t) => !row1.has(t)).map((t) => `${t} está en tweets-row2 pero no en tweets-row1`),
+  ...(row1.size ? [] : ['no encontré tweets-row1']),
+]);
 
 // ── 4. Dominio ──
 const seo = {
